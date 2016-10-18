@@ -5,21 +5,18 @@ import { createSelector } from 'reselect';
  */
 const selectProductsDomain = () => (state) => state.get('products');
 
-/**
- * Other specific selectors
- */
 
+const selectLoading = () => createSelector(
+  selectProductsDomain(),
+  (substate) => substate.get('loading')
+);
 
-/**
- * Default selector used by Products
- */
+const selectError = () => createSelector(
+  selectProductsDomain(),
+  (substate) => substate.get('error')
+);
 
 const selectProducts = () => createSelector(
   selectProductsDomain(),
-  (substate) => substate.toJS()
+  (substate) => substate.get('products')
 );
-
-export default selectProducts;
-export {
-  selectProductsDomain,
-};
