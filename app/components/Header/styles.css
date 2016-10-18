@@ -32,12 +32,13 @@
     padding-right: 5px;
 }
 .headerLogo{
+	padding-top: 50px;
 	text-align: center;
 	opacity: 0.8;
 
 }
 .headerLogo:hover{
-opacity: 1;
+	opacity: 1;
 	}
 ul li {
 	margin: 0;
