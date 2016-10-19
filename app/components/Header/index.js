@@ -45,6 +45,9 @@ function Header() {
   					<li><a href="#">MIKINY</a></li>
   					<li><a href="#">KOSELE</a></li>
   					<li><a href="#">NOHAVICE</a></li>
+  					<li><a href="#">LINK</a></li>
+  					<li><a href="#">LINK</a></li>
+  					<li><a href="#">LINK</a></li>
 				</ul>
     		</nav>
 
