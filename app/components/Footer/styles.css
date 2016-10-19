@@ -1,0 +1,14 @@
+
+
+.footer { /* stylelint-disable */
+	position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 55px;
+    background: blue;
+    text-align: center;
+    font-size: 15px;
+}
+
+
+
