@@ -4,26 +4,33 @@
     border-bottom: 1px solid #e8e8e8;
     position: fixed;
     width: 100%;
-    height: 35%;
+    height: auto;
     z-index: 20;
+    font-family: 'Oswald', sans-serif;
 }
 
 .navUser {
-    padding: 0 2rem;
-    position: relative;
-    right: auto;
-    width: 100%;
-    top: auto;
-    float:right;
-    font-size: 12px;
-    -webkit-transform: none;
-    transform: none;
-    z-index: 50;
+    list-style:none;
+    margin-right: 30px;
+    text-align:right;
 }
 
-.navUserItem {
-    float: right;
-    padding-left: 20px;
+.navUserSection li {
+	text-decoration: none;
+	 display:inline;
+	 padding-left: 15px;
+	 font-size: 12px;
+	 
+}
+.navUserSection li a{
+  display:inline-block;
+  text-decoration: none;
+  color: #4f4f4f;
+	font-weight: bold;
+    
+}
+.navUserSection li a:hover{
+ color: #a1a1a1;
 }
 
 
@@ -32,27 +39,54 @@
     padding-right: 5px;
 }
 .headerLogo{
-	padding-top: 50px;
+	
 	text-align: center;
 	opacity: 0.8;
 
 }
 .headerLogo:hover{
 	opacity: 1;
-	}
-ul li {
-	margin: 0;
-	padding: 0;
 }
 
-li a {
-	color: #4f4f4f;
+.navPagesContainer{
+	background: 0 0;
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    position: relative;
+    text-align:center;
+
+}
+.navPages{
+	
+    list-style:none;
+    margin:0;
+    padding:0;
+    text-align:center;
+	font-size: 12px;
+
+   
+  
+}
+.navPagesList li{
+	
+	display:inline;
+
+}
+.navPagesList li a{
+	 color: #4f4f4f;
 	font-weight: bold;
 	text-decoration: none;
+	 display:inline-block;
+	 padding-top: 10px;
+    padding-left:20px;
+	
 }
-li a:hover {
-	color: #a1a1a1;
+.navPagesList li a:hover{
 
+	opacity: 0.8;
 }
+
 
 

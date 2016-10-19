@@ -16,24 +16,39 @@ function Header() {
   return (
     <header className={styles.header} role="banner">
     	<nav className={styles.navUser}>
+
     		<ul className={styles.navUserSection}>
-    			<li className={styles.navUserItem}>
-    				<a href="/">CART</a> 	
+    			<li>
+    				<a href="#">LINK</a> 	
     			</li>
-    			<li className={styles.navUserItem}>
-    				<a href="/login">LOGIN</a><span className={styles.navUserOr}>or</span> 
-    				<a href="/register"> SIGN UP</a> 
+    			<li >
+    				<a href="#">LOGIN</a>
+    					<span className={styles.navUserOr}>or</span> 
+    				<a href="#"> SIGN UP</a> 
     			</li>
-				<li className={styles.navUserItem}>
-    				<a href="/">LINK</a> 	
+				
+				<li >
+    				<a href="#">CART</a> 	
     			</li>
 
     		</ul>
     	</nav>
+
     	<div className={styles.headerLogo}>
     		<a href="/"><img src={LogoImg}/></a>
     	</div>
-   	
+   		<div className={styles.navPagesContainer}> 
+   			<nav className={styles.navPages}>
+    			<ul className={styles.navPagesList}>
+  					<li><a href="#">VSETKO</a></li>
+  					<li><a href="#">TRICKA</a></li>
+  					<li><a href="#">MIKINY</a></li>
+  					<li><a href="#">KOSELE</a></li>
+  					<li><a href="#">NOHAVICE</a></li>
+				</ul>
+    		</nav>
+
+   		</div>
      
     </header>
   );
