@@ -20,3 +20,10 @@ const selectProducts = () => createSelector(
   selectProductsDomain(),
   (substate) => substate.get('products')
 );
+
+export {
+  selectProductsDomain,
+  selectLoading,
+  selectError,
+  selectProducts,
+};

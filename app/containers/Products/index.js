@@ -23,13 +23,11 @@ import LoadingComponent from 'components/Loading';
 import ErrorComponent from 'components/Error';
 import ProductItem from 'components/ProductItem';
 
-import styles from './styles.css';
+//  import styles from './styles.css';
 
 export class Products extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     let products = null;
-    
-    loadRepos();
 
     // Show a loading indicator when we're loading
     if (this.props.loading) {
@@ -44,9 +42,7 @@ export class Products extends React.Component { // eslint-disable-line react/pre
       products = (<List items={this.props.products} component={ProductItem} />);
     }
 
-    return (
-      {products}
-    );
+    return products;
   }
 }
 
@@ -62,10 +58,17 @@ Products.propTypes = {
   ]),
 };
 
+export function mapDispatchToProps(dispatch) {
+  return {
+    loadProducts: () => dispatch(loadProducts()),
+    dispatch,
+  };
+}
+
 const mapStateToProps = createStructuredSelector({
   products: selectProducts(),
   loading: selectLoading(),
   error: selectError(),
 });
 
-export default connect(mapStateToProps)(Products);
+export default connect(mapStateToProps, mapDispatchToProps)(Products);

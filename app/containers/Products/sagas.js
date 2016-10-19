@@ -1,23 +1,28 @@
 import { take, call, put, fork, cancel } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
-import { PRODUCTS_PAGE } from 'containers/Products/constants';
-import { productsLoaded, prodLoadError } from 'containers/Products/actions';
 import request from 'utils/request';
 
+import {
+  PRODUCTS_PAGE,
+  LOAD_PRODUCTS,
+} from './constants';
+
+import {
+  productsLoaded,
+  prodLoadError,
+} from './actions';
+
 /**
- * Github repos request/response handler
+ * API products request/response handler
  */
-export function* getRepos() {
-  // Get products
-  const requestURL = PRODUCTS_PAGE;
-
+export function* getProducts() {
   // Call our request helper (see 'utils/request')
-  const products = yield call(request, requestURL);
+  const products = yield call(request, PRODUCTS_PAGE);
 
-  if (!repos.err) {
-    yield put(productsLoaded(repos.data));
+  if (!products.err) {
+    yield put(productsLoaded(products.data));
   } else {
-    yield put(prodLoadError(repos.err));
+    yield put(prodLoadError(products.err));
   }
 }
 
@@ -25,7 +30,7 @@ export function* getRepos() {
  * Watches for LOAD_PRODUCTS action and calls handler
  */
 export function* getProductsWatcher() {
-  while (yield take(LOAD_REPOS)) {
+  while (yield take(LOAD_PRODUCTS)) {
     yield call(getProducts);
   }
 }

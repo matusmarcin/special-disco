@@ -44,7 +44,7 @@ export function productsLoaded(products) {
  */
 export function prodLoadError(error) {
   return {
-    type: LOAD_REPOS_ERROR,
+    type: LOAD_PRODUCTS_ERROR,
     error,
   };
 }

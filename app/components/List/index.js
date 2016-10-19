@@ -10,27 +10,24 @@ import styles from './styles.css';
 
 function List(props) {
   const ComponentToRender = props.component;
-  let content = null;
 
   // If we have items, render them
   if (props.items) {
-    content = (
+    return (
       <ul className={styles.list}>
-        props.items.map((item, index) => (
-          <li className={styles.listItem}>
-            <ComponentToRender key={'item-${index}'} item={item} />
-          </li>
-        ));
+        {
+          props.items.map((item, index) => (
+            <li key={`item-${index}`} className={styles.listItem}>
+              <ComponentToRender item={item} />
+            </li>
+          ))
+        }
       </ul>
     );
-  } else {
-    // Otherwise render a single component
-    content = (<ComponentToRender />);
   }
 
-  return (
-    {content}
-  );
+  // Otherwise render a single component
+  return (<ComponentToRender />);
 }
 
 List.propTypes = {

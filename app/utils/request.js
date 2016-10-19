@@ -9,15 +9,15 @@ import { API } from 'containers/App/constants';
  * @return {object|undefined} The parsed JSON from the request, or throws an error
  */
 function parseJSON(response) {
-  response = response.json();
-  
-  if(response.status == 'OK') {
-    return response;
-  }
-  
-  const error = new Error(response.message);
-  error.response = response;
-  throw error;
+  return response.json().then((json) => {
+    if (json.status === 'OK') {
+      return json.data;
+    }
+
+    const error = new Error(json.message);
+    error.response = json;
+    throw error;
+  });
 }
 
 /**
