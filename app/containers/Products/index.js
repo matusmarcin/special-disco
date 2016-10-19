@@ -26,6 +26,10 @@ import ProductItem from 'components/ProductItem';
 //  import styles from './styles.css';
 
 export class Products extends React.Component { // eslint-disable-line react/prefer-stateless-function
+  componentDidMount() {
+    this.props.loadProducts();
+  }
+
   render() {
     let products = null;
 
@@ -56,6 +60,7 @@ Products.propTypes = {
     React.PropTypes.array,
     React.PropTypes.bool,
   ]),
+  loadProducts: React.PropTypes.func,
 };
 
 export function mapDispatchToProps(dispatch) {
