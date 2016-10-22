@@ -16,7 +16,11 @@ function Footer() {
   return (
      <footer className={styles.footer}>
     
-        <p className="footer-text">Copyright © TUKE 2016 • All rights reserved.</p>
+       <section>
+         <p>
+            <FormattedMessage {...messages.licenseMessage} />
+         </p>
+       </section>
 
     </footer>
   );

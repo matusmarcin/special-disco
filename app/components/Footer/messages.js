@@ -6,8 +6,8 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
-  header: {
-    id: 'app.components.Footer.header',
-    defaultMessage: 'This is the Footer component !',
+  licenseMessage: {
+    id: 'components.Footer.license.message',
+    defaultMessage: 'Copyright © TUKE 2016 • All rights reserved.',
   },
 });
