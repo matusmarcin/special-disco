@@ -14,8 +14,10 @@ import styles from './styles.css';
 
 function Footer() {
   return (
-    <footer className={styles.footer}>
-     <p>© 2016. All rights reserved.</p>
+     <footer className={styles.footer}>
+    
+        <p className="footer-text">Copyright © TUKE 2016 • All rights reserved.</p>
+
     </footer>
   );
 }
