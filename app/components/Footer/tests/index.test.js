@@ -1,5 +1,7 @@
 import expect from 'expect';
+import { shallow } from 'enzyme';
 import React from 'react';
+
 import { FormattedMessage } from 'react-intl';
 import messages from '../messages';
 import Footer from '../index';
@@ -9,11 +11,11 @@ describe('<Footer />', () => {
     const renderedComponent = shallow(
       <Footer />
     );
+    const year = new Date().getFullYear();
     expect(renderedComponent.contains(
-      <section>
-        <p>
-          <FormattedMessage {...messages.licenseMessage} />
-        </p>
-      </section>
+      <p>
+        <FormattedMessage {...messages.licenseMessage} values={{ year }} />
+      </p>
     )).toEqual(true);
   });
+});

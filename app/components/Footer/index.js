@@ -13,21 +13,17 @@ import styles from './styles.css';
 
 
 function Footer() {
+  const year = new Date().getFullYear();
   return (
-     <footer className={styles.footer}>
-    
-       <section>
-          <p>
-             <FormattedMessage {...messages.licenseMessage} />
-         </p>
-
-
-          <a href="http://twitter.com/minimalmonkey" className="icon-button twitter"><i className="icon-twitter"></i><span></span></a>
-          <a href="http://facebook.com" className="icon-button facebook"><i className="icon-facebook"></i><span></span></a>
-          <a href="http://plus.google.com" className="icon-button google-plus"><i className="icon-google-plus"></i><span></span></a>
-       </section>
-
-
+    <footer>
+      <section>
+        <a href="http://twitter.com/minimalmonkey" className={`${styles.iconButton} ${styles.twitter}`}><i className="fa fa-twitter"></i><span></span></a>
+        <a href="http://facebook.com" className={`${styles.iconButton} ${styles.facebook}`}><i className="fa fa-facebook"></i><span></span></a>
+        <a href="http://plus.google.com" className={`${styles.iconButton} ${styles.googlePlus}`}><i className="fa fa-google-plus"></i><span></span></a>
+        <p>
+          <FormattedMessage {...messages.licenseMessage} values={{ year }} />
+        </p>
+      </section>
     </footer>
   );
 }
