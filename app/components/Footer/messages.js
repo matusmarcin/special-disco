@@ -8,6 +8,6 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   licenseMessage: {
     id: 'components.Footer.license.message',
-    defaultMessage: 'Copyright © TUKE {year} • All rights reserved.',
+    defaultMessage: 'Copyright © TUKE {year} • All rights reserved',
   },
 });
