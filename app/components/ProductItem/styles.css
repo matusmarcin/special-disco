@@ -1,3 +1,8 @@
-.itemContent { /* stylelint-disable */
+.itemContent {
+  color: #989898;
+  margin-bottom: 3rem;
+}
 
+.itemContent img {
+  max-width: 100%;
 }

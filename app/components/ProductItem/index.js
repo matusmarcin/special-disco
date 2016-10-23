@@ -23,10 +23,10 @@ function ProductItem(props) {
 
   return (
     <div className={styles.itemContent}>
-      <h1>{item.name}</h1>
-      {item.desc}<br />
-      <img src={`img/products/${item.img}`} alt={name} /><br />
-      ${item.price}
+      <a href=""><img src={`img/products/${item.img}`} alt={name} /></a><br />
+      {item.category}
+      <h2><a href="">{item.name}</a></h2>
+      ${item.price.toFixed(2)}
     </div>
   );
 }

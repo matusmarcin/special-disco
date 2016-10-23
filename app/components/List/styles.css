@@ -1,6 +1,10 @@
-.list { /* stylelint-disable */
-
+.list {
+  list-style: none;
 }
-.listItem { /* stylelint-disable */
 
+.listItem {
+  float: left;
+  width: 25%;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }

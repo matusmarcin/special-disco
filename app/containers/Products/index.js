@@ -23,8 +23,6 @@ import LoadingComponent from 'components/Loading';
 import ErrorComponent from 'components/Error';
 import ProductItem from 'components/ProductItem';
 
-//  import styles from './styles.css';
-
 export class Products extends React.Component { // eslint-disable-line react/prefer-stateless-function
   componentDidMount() {
     this.props.loadProducts();

@@ -26,8 +26,8 @@ function List(props) {
     );
   }
 
-  // Otherwise render a single component
-  return (<ComponentToRender />);
+  // Otherwise render empty component
+  return null;
 }
 
 List.propTypes = {

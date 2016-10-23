@@ -1,5 +1,10 @@
 [
   {
+    "id": "app.components.HomePage.header",
+    "defaultMessage": "Products",
+    "message": "Products"
+  },
+  {
     "id": "app.components.Error.text",
     "defaultMessage": "Something went wrong, please try again!",
     "message": "Something went wrong, please try again!"

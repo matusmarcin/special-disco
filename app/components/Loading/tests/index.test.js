@@ -1,11 +1,12 @@
-// import Loading from '../index';
+import Loading from '../index';
 
-import expect from 'expect';
-// import { shallow } from 'enzyme';
-// import React from 'react';
+import { expect } from 'chai';
+import { shallow } from 'enzyme';
+import React from 'react';
 
 describe('<Loading />', () => {
-  it('Expect to have unit tests specified', () => {
-    expect(true).toEqual(false);
+  it('should render loading image', () => {
+    const renderedComponent = shallow(<Loading />);
+    expect(renderedComponent).to.have.tagName('img');
   });
 });
