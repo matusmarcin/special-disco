@@ -6,20 +6,22 @@
     width: 100%;
     height: auto;
     z-index: 20;
-    font-family: 'Oswald', sans-serif;
+
 }
 
 .navUser {
     list-style:none;
     margin-right: 50px;
     text-align:right;
-}
 
+} 
+	 
 .navUserSection li {
 	text-decoration: none;
 	 display:inline;
 	 padding-left: 30px;
 	 font-size: 12px;
+
 	 
 }
 .navUserSection li a{
@@ -27,6 +29,7 @@
   text-decoration: none;
   color: #4f4f4f;
 	font-weight: bold;
+
     
 }
 .navUserSection li a:hover{
@@ -41,12 +44,17 @@
 .headerLogo{
 	
 	text-align: center;
+
 }
 .headerLogo img{
 	opacity: 0.7;
 }
 .headerLogo img:hover{
 	opacity: 1;
+}
+.headerLogoSmall{
+	display: none;
+	
 }
 
 .navPagesContainer{
@@ -88,5 +96,47 @@
 	opacity: 0.8;
 }
 
+.navPagesList .navIcon{
+
+	display: none;
+}
+
+
+@media screen and (max-width:680px) {
+  .navPagesList li:not(:first-child) {
+  	display: none;
+  }
+  .navPagesList .navIcon {
+  	font-size: 20px;
+    float: left;
+    display: inline-block;
+   
+}
+  .headerLogo{
+  	display: none;
+
+  }
+  .headerLogoSmall {
+
+  	display: block;
+ 	text-align: center;
+    
+
+  }
+  .navUser{
+ 	display: none;
+  }
+ 
+}
+@media screen and (max-width:680px) {
+ .navPagesList .responsive {
+ 	position: relative;
+ }
+  .navPagesList .responsive .navIcon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
 
 
