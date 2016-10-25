@@ -1,11 +1,17 @@
-// import Header from '../index';
-
 import expect from 'expect';
-// import { shallow } from 'enzyme';
-// import React from 'react';
+import { shallow } from 'enzyme';
+import React from 'react';
+
+import Header from '../index';
 
 describe('<Header />', () => {
-  it('Expect to have unit tests specified', () => {
-    expect(true).toEqual(false);
+  it('should have nav menu', () => {
+    const renderedComponent = shallow(<Header />);
+    expect(renderedComponent.find('nav').length >= 1).toEqual(true);
+  });
+
+  it('should have one image of logo', () => {
+    const renderedComponent = shallow(<Header />);
+    expect(renderedComponent.find('img').length === 1).toEqual(true);
   });
 });
