@@ -14,6 +14,7 @@
 import React from 'react';
 
 import styles from './styles.css';
+import Header from 'components/Header';
 import Slideshow from 'components/Slideshow';
 import Footer from 'components/Footer';
 
@@ -26,6 +27,7 @@ export default class App extends React.Component { // eslint-disable-line react/
   render() {
     return (
       <div>
+        <Header />
         <Slideshow />
         <div className={styles.container}>
           {React.Children.toArray(this.props.children)}

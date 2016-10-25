@@ -1,15 +1,15 @@
 {
-  "name": "react-boilerplate",
-  "version": "3.2.1",
-  "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
+  "name": "special-disco",
+  "version": "0.0.1",
+  "description": "ReactJS based front-end for ecommerce presentations.",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mxstbr/react-boilerplate.git"
+    "url": "git://github.com/matusmarcin/special-disco.git"
   },
   "engines": {
     "npm": ">=3"
   },
-  "author": "Max Stoiber",
+  "author": "TUKE",
   "license": "MIT",
   "scripts": {
     "analyze:clean": "rimraf stats.json",
