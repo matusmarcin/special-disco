@@ -13,6 +13,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import Products from 'containers/Products';
 import messages from './messages';
+import Footer from 'components/Footer';
 
 export default class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
@@ -21,7 +22,7 @@ export default class HomePage extends React.Component { // eslint-disable-line r
       <div>
         <h1><FormattedMessage {...messages.header} /></h1>
         <Products />
-      </div>
-    );
+        <Footer />
+      </div>    );
   }
 }
