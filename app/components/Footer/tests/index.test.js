@@ -13,9 +13,7 @@ describe('<Footer />', () => {
     );
     const year = new Date().getFullYear();
     expect(renderedComponent.contains(
-      <p>
-        <FormattedMessage {...messages.licenseMessage} values={{ year }} />
-      </p>
+      <FormattedMessage {...messages.licenseMessage} values={{ year }} />
     )).toEqual(true);
   });
 });

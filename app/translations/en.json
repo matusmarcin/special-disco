@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "id": "components.Footer.license.message",
+    "defaultMessage": "© Copyright TUKE {year}. All rights reserved.",
+    "message": "© Copyright TUKE {year}. All rights reserved."
+  },
+  {
+    "id": "components.Footer.top.text",
+    "defaultMessage": "The yourney is the reward.",
+    "message": "The yourney is the reward."
+  }
+]

@@ -1,51 +1,15 @@
-html {
-    position: relative;
-    min-height: 100%;
-    font-size: 9px;
-}
-body {
-    margin: 0 0 100px; 
-}
-
 footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 125px;
-    width: 100%;
-    text-align: center; 
-    background: white;
-
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 3rem 0;
+  border-top: 1px solid #E8E8E8;
+  width: 100%;
+  text-align: center;
 }
-
-hr {
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-}
-
-
-p {
-	font-size: 13px;
-	font-family: 'Pacifico', cursive;
-	
-}
-
-h2 {
-	font-size:  17px;
-	font-family: 'Kaushan Script', cursive;
-	
-}
-
-a {
-	margin-left: 10px;
-}
-
-
 
 /* Wrapper */
 .iconButton {
-  background-color: white;
   border-radius: 3.6rem;
   cursor: pointer;
   display: inline-block;

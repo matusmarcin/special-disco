@@ -10,4 +10,8 @@ export default defineMessages({
     id: 'components.Footer.license.message',
     defaultMessage: '© Copyright TUKE {year}. All rights reserved.',
   },
+  topText: {
+    id: 'components.Footer.top.text',
+    defaultMessage: 'The yourney is the reward.',
+  },
 });
