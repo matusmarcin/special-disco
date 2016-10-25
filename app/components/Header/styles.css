@@ -1,0 +1,98 @@
+.header {
+  border-bottom: 1px solid #E8E8E8;
+  width: 100%;
+}
+
+.navUser {
+  margin-right: 50px;
+  text-align: right;
+}
+
+.navUserSection li {
+  display: inline;
+  padding-left: 30px;
+  font-size: 12px;
+}
+
+.navUserSection li a {
+  display: inline-block;
+  text-decoration: none;
+  color: #4F4F4F;
+  font-weight: bold;
+}
+
+.navUserSection li a:hover {
+  color: #A1A1A1;
+}
+
+.headerLogo {
+  text-align: center;
+}
+
+.headerLogo img {
+  opacity: 0.7;
+}
+
+.headerLogo img:hover {
+  opacity: 1;
+}
+
+.navPages {
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+}
+
+.navPagesList li {
+  display: inline;
+}
+
+.navPagesList li a {
+  display: inline-block;
+  color: #4F4F4F;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0 20px;
+  word-wrap: normal;
+}
+
+.navPagesList li a:hover {
+  color: #A1A1A1;
+}
+
+.navPagesList .navIcon {
+  display: none;
+}
+
+@media (max-width: 680px) {
+  .navPages {
+    text-align: initial;
+  }
+
+  .navPagesList li:not(:first-child) {
+    display: none;
+  }
+
+  .navPagesList .responsive {
+    position: relative;
+  }
+
+  .navPagesList .responsive .navIcon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .navPagesList .navIcon {
+    font-size: 20px;
+    display: inline-block;
+  }
+
+  .headerLogo img {
+    width: 40%;
+  }
+
+  .navUser {
+    display: none;
+  }
+}
