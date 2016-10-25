@@ -12,7 +12,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
-import Slideshow from 'components/slideshow';
+import Slideshow from 'components/Slideshow';
 export default class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   render() {
