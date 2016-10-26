@@ -1,0 +1,49 @@
+/**
+ * styles.css
+ *
+ * App container styles
+ */
+
+h1,
+h2 {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  color: #2D2D2D;
+  letter-spacing: 0.25px;
+  margin-bottom: 0.78571rem;
+}
+
+h1 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 3rem;
+}
+
+h2 {
+  font-size: 15px;
+  margin: 0;
+  margin-bottom: 4px;
+}
+
+a {
+  text-decoration: none;
+  color: #2D2D2D;
+  transition: color 0.15s ease 0s;
+}
+
+a:hover {
+  color: #A5A5A5;
+}
+
+body {
+  font-family: Karla, Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 91.7143rem;
+  width: 100%;
+}

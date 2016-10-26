@@ -1,0 +1,23 @@
+.list {
+  list-style: none;
+}
+
+.listItem {
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+@media (min-width: 551px) {
+  .listItem {
+    width: 33.3333%;
+  }
+}
+
+@media (min-width: 801px) {
+  .listItem {
+    width: 25%;
+  }
+}
