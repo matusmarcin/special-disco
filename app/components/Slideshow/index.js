@@ -13,7 +13,7 @@ import bg3 from './slideshow/bg3.jpg';
 
 function Slideshow() {
   return (
-    <Carousel autoplay="true">
+    <Carousel autoplay={Boolean(true)}>
       <img alt="" src={bg2} />
       <img alt="" src={bg1} />
       <img alt="" src={bg3} />
