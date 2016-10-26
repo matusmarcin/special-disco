@@ -1,6 +1,9 @@
 # special-disco
 ReactJS based front-end for ecommerce presentations.
 
+* dev: [![CircleCI](https://circleci.com/gh/matusmarcin/special-disco/tree/dev.svg?style=svg)](https://circleci.com/gh/matusmarcin/special-disco/tree/dev)
+* master: [![CircleCI](https://circleci.com/gh/matusmarcin/special-disco/tree/master.svg?style=svg)](https://circleci.com/gh/matusmarcin/special-disco/tree/master)
+
 ## Quick start
 
 1. Clone this repo using `git clone https://github.com/matusmarcin/special-disco.git`
