@@ -11,7 +11,7 @@
 .navUserSection li {
   display: inline;
   padding-left: 30px;
-  font-size: 12px;
+  font-size: 17px;
 }
 
 .navUserSection li a {
@@ -40,7 +40,7 @@
 .navPages {
   width: 100%;
   text-align: center;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .navPagesList li {
