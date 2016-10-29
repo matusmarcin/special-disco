@@ -12,6 +12,6 @@ export default defineMessages({
   },
   topText: {
     id: 'components.Footer.top.text',
-    defaultMessage: 'The yourney is the reward.',
+    defaultMessage: 'The journey is the reward.',
   },
 });

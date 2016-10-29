@@ -1,5 +1,13 @@
+test:
+  override:
+    - npm run build
 machine:
   node:
     version: 4.1.0
   post:
     - npm install -g npm@3.x.x
+deployment:
+  staging:
+    branch: dev
+    commands:
+      - rsync -avz ~/special-disco/build/ circleci@46.101.217.195:/var/www/specialdisco.club
