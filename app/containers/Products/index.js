@@ -19,8 +19,8 @@ import {
 } from './actions';
 
 import List from 'components/List';
-import LoadingComponent from 'components/Loading';
-import ErrorComponent from 'components/Error';
+import Loading from 'components/Loading';
+import Error from 'components/Error';
 import ProductItem from 'components/ProductItem';
 
 export class Products extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -33,11 +33,11 @@ export class Products extends React.Component { // eslint-disable-line react/pre
 
     // Show a loading indicator when we're loading
     if (this.props.loading) {
-      products = (<List component={LoadingComponent} />);
+      products = (<Loading />);
 
     // Show an error if there is one
     } else if (this.props.error !== false) {
-      products = (<List component={ErrorComponent} />);
+      products = (<Error />);
 
     // If we're not loading, don't have an error and there are products, show the products
     } else if (this.props.products !== false) {
