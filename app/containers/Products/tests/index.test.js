@@ -13,7 +13,7 @@ describe('<Products />', () => {
     const renderedComponent = shallow(
       <Products loading />
     );
-    expect(renderedComponent.contains(<List component={Loading} />)).toEqual(true);
+    expect(renderedComponent.contains(<Loading />)).toEqual(true);
   });
 
   it('should render an error if loading failed', () => {
@@ -23,13 +23,13 @@ describe('<Products />', () => {
         error={{ message: 'Loading failed!' }}
       />
     );
-    expect(renderedComponent.contains(<List component={Error} />)).toEqual(true);
+    expect(renderedComponent.contains(<Error />)).toEqual(true);
   });
 
   it('should render the products if loading was successful', () => {
     const products = [{
       name: 'Textured Jersey Henley',
-      category: 'Summer collection',
+      categories: '["Summer collection"]',
       img: 'img1.jpg',
       price: 12.5,
     }];

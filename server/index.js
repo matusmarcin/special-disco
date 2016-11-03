@@ -1,17 +1,28 @@
 /* eslint consistent-return:0 */
-
+require('dotenv').config({ silent: true });
 const express = require('express');
 const logger = require('./logger');
 
 const argv = require('minimist')(process.argv.slice(2));
 const setup = require('./middlewares/frontendMiddleware');
-const api = require('./api/1');
+const Mysql = require('./mysql');
+const db = new Mysql();
 const isDev = process.env.NODE_ENV !== 'production';
 const ngrok = (isDev && process.env.ENABLE_TUNNEL) || argv.tunnel ? require('ngrok') : false;
 const resolve = require('path').resolve;
 const app = express();
 
-app.use('/api/v1', api);
+// get MySQL host, user, password and database, use default if not provided
+const mysqlConfig = {
+  host: argv.mysqlhost || process.env.MYSQLHOST || 'localhost',
+  user: argv.mysqluser || process.env.MYSQLUSER || 'root',
+  password: argv.mysqlpassword || process.env.MYSQLPASSWORD || '',
+  database: argv.mysqldatabase || process.env.MYSQLDATABASE || 'specialdisco',
+};
+
+db.connect(mysqlConfig);
+
+app.use('/api/v1', require('./api/1'));
 
 // In production we need to pass these values in instead of relying on webpack
 setup(app, {

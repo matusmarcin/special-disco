@@ -18,13 +18,13 @@ describe('<List />', () => {
     const items = [
       {
         name: 'Textured Jersey Henley',
-        category: 'Summer collection',
+        categories: '["Summer collection"]',
         img: 'img1.jpg',
         price: 12.5,
       },
       {
         name: 'Must-Have Contrast T-Shirt',
-        category: 'Summer collection',
+        categories: '["Summer collection"]',
         img: 'img3.jpg',
         price: 14,
       },

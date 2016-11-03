@@ -21,10 +21,16 @@ function ProductItem(props) {
     name = item.name;
   }
 
+  let categories = '';
+  const json = JSON.parse(item.categories);
+  for (let i = 0, len = json.length; i < len; i += 1) {
+    categories += `${json[i]}, `;
+  }
+
   return (
     <div className={styles.itemContent}>
       <a href=""><img src={`img/products/${item.img}`} alt={name} /></a><br />
-      {item.category}
+      {categories.slice(0, -2)}
       <h2><a href="">{item.name}</a></h2>
       ${item.price.toFixed(2)}
     </div>
