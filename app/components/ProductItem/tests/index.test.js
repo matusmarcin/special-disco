@@ -11,7 +11,7 @@ describe('<ProductItem />', () => {
   beforeEach(() => {
     item = {
       name: 'Textured Jersey Henley',
-      category: 'Summer collection',
+      categories: '["Summer collection"]',
       img: 'img1.jpg',
       price: 12.5,
     };
@@ -28,7 +28,7 @@ describe('<ProductItem />', () => {
     const renderedComponent = shallow(
       <ProductItem item={item} />
     );
-    expect(renderedComponent.text().indexOf(item.category)).toBeGreaterThan(-1);
+    expect(renderedComponent.text().indexOf(JSON.parse(item.categories)[0])).toBeGreaterThan(-1);
   });
 
   it('should render the item image', () => {
