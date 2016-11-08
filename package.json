@@ -222,6 +222,8 @@
     "mysql": "^2.11.1",
     "nuka-carousel": "^2.0.3",
     "react": "15.3.1",
+    "react-button": "^1.2.1",
+    "react-buttons": "0.0.11",
     "react-dom": "15.3.1",
     "react-helmet": "3.1.0",
     "react-intl": "2.1.5",

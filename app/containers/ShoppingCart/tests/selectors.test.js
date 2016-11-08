@@ -1,10 +1,10 @@
-// import { selectCartDomain } from '../selectors';
+// import { selectShoppingCartDomain } from '../selectors';
 // import { fromJS } from 'immutable';
 import expect from 'expect';
 
-// const selector = selectCartDomain();
+// const selector = selectShoppingCartDomain();
 
-describe('selectCartDomain', () => {
+describe('selectShoppingCartDomain', () => {
   it('Expect to have unit tests specified', () => {
     expect('Test case').toEqual(false);
   });

@@ -1,25 +1,25 @@
 /*
  *
- * Cart
+ * ShoppingCart
  *
  */
 
 import React from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
-import selectCart from './selectors';
+import selectShoppingCart from './selectors';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 import styles from './styles.css';
 
-export class Cart extends React.Component { // eslint-disable-line react/prefer-stateless-function
+export class ShoppingCart extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div className={styles.cart}>
+      <div className={styles.shoppingCart}>
         <Helmet
-          title="Cart"
+          title="ShoppingCart"
           meta={[
-            { name: 'description', content: 'Description of Cart' },
+            { name: 'description', content: 'Description of ShoppingCart' },
           ]}
         />
         <FormattedMessage {...messages.header} />
@@ -28,7 +28,7 @@ export class Cart extends React.Component { // eslint-disable-line react/prefer-
   }
 }
 
-const mapStateToProps = selectCart();
+const mapStateToProps = selectShoppingCart();
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -36,4 +36,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Cart);
+export default connect(mapStateToProps, mapDispatchToProps)(ShoppingCart);

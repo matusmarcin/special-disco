@@ -1,6 +1,6 @@
 /*
  *
- * Cart reducer
+ * ShoppingCart reducer
  *
  */
 
@@ -11,7 +11,7 @@ import {
 
 const initialState = fromJS({});
 
-function cartReducer(state = initialState, action) {
+function shoppingCartReducer(state = initialState, action) {
   switch (action.type) {
     case DEFAULT_ACTION:
       return state;
@@ -20,4 +20,4 @@ function cartReducer(state = initialState, action) {
   }
 }
 
-export default cartReducer;
+export default shoppingCartReducer;

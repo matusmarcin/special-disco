@@ -11,6 +11,7 @@ import React from 'react';
 
 import styles from './styles.css';
 
+
 function ProductItem(props) {
   const item = props.item;
 
@@ -33,6 +34,7 @@ function ProductItem(props) {
       {categories.slice(0, -2)}
       <h2><a href="">{item.name}</a></h2>
       ${item.price.toFixed(2)}
+      <button className="btn" onClick="addToCart">Add to Cart</button>
     </div>
   );
 }

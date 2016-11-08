@@ -1,6 +1,6 @@
 /*
  *
- * Cart actions
+ * ShoppingCart actions
  *
  */
 
