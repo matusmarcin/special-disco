@@ -9,7 +9,7 @@ import {
   PICK_SIZE,
   SET_COUNTER,
   INCREASE_COUNTER,
-  DECREASE_COUNTER
+  DECREASE_COUNTER,
 } from './constants';
 
 /**
@@ -31,12 +31,13 @@ export function pickImage(image) {
  *
  * @param  {object} size The product size
  *
- * @return {object}      An action object with a type of PICK_SIZE passing the size
+ * @return {object}      An action object with a type of PICK_SIZE passing the name and count
  */
 export function pickSize(size) {
   return {
     type: PICK_SIZE,
-    size,
+    name: size.name,
+    count: size.count,
   };
 }
 
@@ -48,12 +49,12 @@ export function pickSize(size) {
  * @return {object} An action object with a type of SET_COUNTER passing the count
  */
 export function setCounter(count) {
-  count = parseInt(count, 10);
-  
-  if(count >= 1) {
+  const countNum = parseInt(count, 10);
+
+  if (countNum >= 1) {
     return {
       type: SET_COUNTER,
-      count,
+      count: countNum,
     };
   }
 

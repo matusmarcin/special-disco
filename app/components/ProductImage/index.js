@@ -16,12 +16,13 @@ function ProductImage(props) {
   const dispatch = props.dispatch;
 
   return (
-    <img src={`/img/products/${item.img}`} alt={item.name} onClick={() => dispatch(pickImage(item.img))} />
+    <a href="#" onClick={() => dispatch(pickImage(item.img))}><img src={`/img/products/${item.img}`} alt={item.name} /></a>
   );
 }
 
 ProductImage.propTypes = {
-  item: React.PropTypes.object,
+  item: React.PropTypes.object.isRequired,
+  dispatch: React.PropTypes.func.isRequired,
 };
 
 export default connect()(ProductImage);

@@ -37,7 +37,7 @@ describe('getProducts Saga', () => {
     expect(putDescriptor).toEqual(put(productsLoaded(response.data)));
   });
 
-  it('should call the repoLoadingError action if the response errors', () => {
+  it('should call the prodLoadError action if the response errors', () => {
     const response = {
       err: 'Some error',
     };
@@ -75,7 +75,7 @@ describe('productsDataSaga Saga', () => {
     expect(takeDescriptor.value).toEqual(take(LOCATION_CHANGE));
   });
 
-  it('should finally cancel() the forked getReposWatcher saga',
+  it('should finally cancel() the forked getProductsWatcher saga',
      function* productsDataSagaCancellable() {
       // reuse open fork for more integrated approach
        forkDescriptor = productsDataSaga.next(put(LOCATION_CHANGE));

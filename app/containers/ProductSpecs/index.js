@@ -33,6 +33,7 @@ import styles from './styles.css';
 export class ProductSpecs extends React.Component { // eslint-disable-line react/prefer-stateless-function
   componentDidMount() {
     this.props.pickImage(JSON.parse(this.props.item.images)[0]);
+    this.props.pickSize(JSON.parse(this.props.item.sizes)[0]);
   }
 
   render() {
@@ -51,21 +52,22 @@ export class ProductSpecs extends React.Component { // eslint-disable-line react
       categories += `${json[i]}, `;
     }
 
-    let images = [];
+    const images = [];
     json = JSON.parse(item.images);
     for (let i = 0, len = json.length; i < len; i += 1) {
       images.push({
         img: json[i],
-        name: name,
+        name,
       });
     }
 
-    let options = [];
-    json = JSON.parse(item.categories);
+    const options = [];
+    json = JSON.parse(item.sizes);
     for (let i = 0, len = json.length; i < len; i += 1) {
+      const size = json[i];
       options.push({
-        img: json[i],
-        name: name,
+        name: size.name,
+        count: size.count,
       });
     }
 
@@ -80,19 +82,19 @@ export class ProductSpecs extends React.Component { // eslint-disable-line react
           {categories.slice(0, -2)}
           <h2>{item.name}</h2>
           ${item.price.toFixed(2)}
-          <br/>
-          <select>
+          <br />
+          <select onChange={(event) => this.props.pickSize(options[event.target.value])}>
             {
-              JSON.parse(item.categories).map((item, index) => (
-                <option value={index}>{item}</option>
+              options.map((size, index) => (
+                <option key={index} value={index}>{size.name}</option>
               ))
             }
           </select>
-          <br/>
+          <br />
           <button className={styles.button} onClick={() => this.props.decreaseCounter()}>
             <i className="fa fa-angle-down" aria-hidden="true"></i>
           </button>
-          <input className={styles.counter} value={this.props.counter} onChange={(event) => this.props.setCounter(event.target.value)} name="qty" type="tel" min="1" pattern="[0-9]*"/>
+          <input className={styles.counter} value={this.props.counter} onChange={(event) => this.props.setCounter(event.target.value)} name="qty" type="tel" min="1" pattern="[0-9]*" />
           <button className={styles.button} onClick={() => this.props.increaseCounter()}>
             <i className="fa fa-angle-up" aria-hidden="true"></i>
           </button>
@@ -105,8 +107,12 @@ export class ProductSpecs extends React.Component { // eslint-disable-line react
 ProductSpecs.propTypes = {
   item: React.PropTypes.object,
   image: React.PropTypes.string,
-  size: React.PropTypes.string,
   counter: React.PropTypes.number,
+  pickImage: React.PropTypes.func,
+  pickSize: React.PropTypes.func,
+  setCounter: React.PropTypes.func,
+  increaseCounter: React.PropTypes.func,
+  decreaseCounter: React.PropTypes.func,
 };
 
 export function mapDispatchToProps(dispatch) {
