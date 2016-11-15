@@ -1,3 +1,6 @@
+.productSpecs{
+  padding-top: 2rem;
+}
 .productSpecs div {
   display: inline-block;
   vertical-align: top;
@@ -8,12 +11,29 @@
 
 .productSpecs div > img {
   width: 500px;
+  float: left;
+  padding-bottom: 1rem;
+}
+
+.productSpecs h2{
+  font-size: 2em;
+  letter-spacing: 1px;
+  padding-bottom: 2rem;
+}
+
+.productSpecs h3{
+  font-size: 1.4em;
+}
+
+.productSpecs p{
+  font-size: 2em;
 }
 
 .imageList {
   list-style: none;
   padding: 0;
 }
+
 
 .imageList li {
   float: left;
@@ -24,6 +44,10 @@
 
 .imageList li img {
   width: 100%;
+}
+
+.imageList li img:hover {
+  border: 2px solid black;
 }
 
 .button {
@@ -51,4 +75,30 @@
   color: #454545;
   font-weight: bold;
   text-align: center;
+}
+@media screen and (max-width: 780px){
+  .productSpecs div > img{
+    width: 100%;
+  }
+
+  .imageList li{
+    width: 33.33%;
+  }
+}
+@media screen and (max-width: 1150px){
+  .productSpecs div {
+    width: 100%; text-align: center;
+  }
+
+  .productSpecs div > img{
+    text-align: center;
+    float: none;
+  }
+
+  .imageList li{
+    float: none;
+    display: inline-block;
+    vertical-align: top;
+    padding-bottom: 2rem;
+  }
 }
