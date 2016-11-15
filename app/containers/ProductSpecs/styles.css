@@ -76,3 +76,29 @@
   font-weight: bold;
   text-align: center;
 }
+@media screen and (max-width: 780px){
+  .productSpecs div > img{
+    width: 100%;
+  }
+
+  .imageList li{
+    width: 33.33%;
+  }
+}
+@media screen and (max-width: 1150px){
+  .productSpecs div {
+    width: 100%; text-align: center;
+  }
+
+  .productSpecs div > img{
+    text-align: center;
+    float: none;
+  }
+
+  .imageList li{
+    float: none;
+    display: inline-block;
+    vertical-align: top;
+    padding-bottom: 2rem;
+  }
+}
