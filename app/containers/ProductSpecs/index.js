@@ -76,11 +76,14 @@ export class ProductSpecs extends React.Component { // eslint-disable-line react
           <List className={styles.imageList} items={images} component={ProductImage} />
         </div>
         <div>
-          <br />
+
           {categories.slice(0, -2)}
-          <h2>{item.name}</h2>
-          ${item.price.toFixed(2)}
           <br/>
+          <h2>{item.name}</h2>
+          <hr/>
+          <p>${item.price.toFixed(2)}</p>
+          <hr/>
+
           <select>
             {
               JSON.parse(item.categories).map((item, index) => (
@@ -88,13 +91,19 @@ export class ProductSpecs extends React.Component { // eslint-disable-line react
               ))
             }
           </select>
+          <hr/>
           <br/>
+          <h3>Quantity:</h3>
           <button className={styles.button} onClick={() => this.props.decreaseCounter()}>
             <i className="fa fa-angle-down" aria-hidden="true"></i>
           </button>
           <input className={styles.counter} value={this.props.counter} onChange={(event) => this.props.setCounter(event.target.value)} name="qty" type="tel" min="1" pattern="[0-9]*"/>
           <button className={styles.button} onClick={() => this.props.increaseCounter()}>
             <i className="fa fa-angle-up" aria-hidden="true"></i>
+          </button>
+
+          <button>
+
           </button>
         </div>
       </div>
