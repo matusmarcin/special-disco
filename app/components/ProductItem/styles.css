@@ -8,14 +8,17 @@
 }
 
 .itemContent button {
-	background: #7CFC00;
-	padding: 4px 10px;
-	border-radius: 6px;
-	float: right;
-	color: white;
+  background: #7CFC00;
+  padding: 4px 10px;
+  border-radius: 6px;
+  float: right;
+  color: white;
+  cursor: pointer;
 }
 
-.itemContent button:hover {
-	background: #63c900;
-	color: white;
+.itemContent button:hover,
+.itemContent button:focus {
+  background: #63c900;
+  color: white;
+
 }

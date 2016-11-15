@@ -17,6 +17,8 @@ import styles from './styles.css';
 import Header from 'components/Header';
 import Slideshow from 'components/Slideshow';
 import Footer from 'components/Footer';
+import Cart from 'components/Cart';
+
 
 export default class App extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
@@ -32,6 +34,7 @@ export default class App extends React.Component { // eslint-disable-line react/
         <div className={styles.container}>
           {React.Children.toArray(this.props.children)}
         </div>
+        <Cart />
         <Footer />
       </div>
     );

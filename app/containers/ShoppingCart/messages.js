@@ -8,6 +8,6 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   header: {
     id: 'app.containers.ShoppingCart.header',
-    defaultMessage: 'This is ShoppingCart container !',
+    defaultMessage: 'This is your Cart!',
   },
 });
