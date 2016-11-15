@@ -33,14 +33,15 @@ function Header() {
           <li className={styles.navIcon}>
             <a href="">&#9776;</a>
           </li>
-          <li><a href="">VSETKO</a></li>
-          <li><a href="">TRICKA</a></li>
-          <li><a href="">MIKINY</a></li>
-          <li><a href="">KOSELE</a></li>
-          <li><a href="">NOHAVICE</a></li>
-          <li><a href="">LINK</a></li>
-          <li><a href="">LINK</a></li>
-          <li><a href="">LINK</a></li>
+          <li><a href="">ALL</a></li>
+          <li><a href="">SUMMER COLLECTION</a></li>
+          <li><a href="">T-SHIRTS</a></li>
+          <li><a href="">HOODIES</a></li>
+          <li><a href="">SHORTS</a></li>
+          <li><a href="">POLOS</a></li>
+          <li><a href="">SWEATERS</a></li>
+          <li><a href="">JEANS</a></li>
+          <li><a href="">PANTS</a></li>
         </ul>
       </nav>
     </header>
