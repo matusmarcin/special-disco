@@ -16,7 +16,15 @@ function ProductImage(props) {
   const dispatch = props.dispatch;
 
   return (
-    <a href="#" onClick={() => dispatch(pickImage(item.img))}><img src={`/img/products/${item.img}`} alt={item.name} /></a>
+    <a
+      href={`/img/products/${item.img}`}
+      onClick={(event) => {
+        dispatch(pickImage(item.img));
+        event.preventDefault();
+      }}
+    >
+      <img src={`/img/products/${item.img}`} alt={item.name} />
+    </a>
   );
 }
 

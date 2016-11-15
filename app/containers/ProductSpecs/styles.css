@@ -1,6 +1,7 @@
-.productSpecs{
+.productSpecs {
   padding-top: 2rem;
 }
+
 .productSpecs div {
   display: inline-block;
   vertical-align: top;
@@ -15,17 +16,17 @@
   padding-bottom: 1rem;
 }
 
-.productSpecs h2{
+.productSpecs h2 {
   font-size: 2em;
   letter-spacing: 1px;
   padding-bottom: 2rem;
 }
 
-.productSpecs h3{
+.productSpecs h3 {
   font-size: 1.4em;
 }
 
-.productSpecs p{
+.productSpecs p {
   font-size: 2em;
 }
 
@@ -33,7 +34,6 @@
   list-style: none;
   padding: 0;
 }
-
 
 .imageList li {
   float: left;
@@ -44,24 +44,26 @@
 
 .imageList li img {
   width: 100%;
+  padding: 2px;
 }
 
 .imageList li img:hover {
+  padding: 0;
   border: 2px solid black;
 }
 
 .button {
   padding: 0.21429rem 0.35714rem;
-  border: 1px solid #dfdfdf;
+  border: 1px solid #DFDFDF;
   border-radius: 4px;
   color: #454545;
   line-height: 1rem;
-  transition: border ease .3s, color ease .3s;
+  transition: border ease 0.3s, color ease 0.3s;
 }
 
 .button:hover {
   color: #666;
-  border: 1px solid #696969
+  border: 1px solid #696969;
 }
 
 .button i {
@@ -76,27 +78,29 @@
   font-weight: bold;
   text-align: center;
 }
-@media screen and (max-width: 780px){
-  .productSpecs div > img{
+
+@media screen and (max-width: 780px) {
+  .productSpecs div > img {
     width: 100%;
   }
 
-  .imageList li{
+  .imageList li {
     width: 33.33%;
   }
 }
-@media screen and (max-width: 1150px){
+
+@media screen and (max-width: 1150px) {
   .productSpecs div {
-    width: 100%; text-align: center;
+    width: 100%;
+    text-align: center;
   }
 
-  .productSpecs div > img{
+  .productSpecs div > img {
     text-align: center;
     float: none;
   }
 
-  .imageList li{
-    float: none;
+  .imageList li {
     display: inline-block;
     vertical-align: top;
     padding-bottom: 2rem;

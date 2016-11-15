@@ -84,14 +84,16 @@ export class ProductSpecs extends React.Component { // eslint-disable-line react
           <hr />
           <p>${item.price.toFixed(2)}</p>
           <hr />
-          <select onChange={(event) => this.props.pickSize(options[event.target.value])}>            {
+          <select onChange={(event) => this.props.pickSize(options[event.target.value])}>
+            {
               options.map((size, index) => (
                 <option key={index} value={index}>{size.name}</option>
               ))
             }
           </select>
           <hr />
-          <br />          <h3>Quantity:</h3>
+          <br />
+          <h3><FormattedMessage {...messages.quantity} /></h3>
           <button className={styles.button} onClick={() => this.props.decreaseCounter()}>
             <i className="fa fa-angle-down" aria-hidden="true"></i>
           </button>

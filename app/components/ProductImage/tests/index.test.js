@@ -19,6 +19,6 @@ describe('<ProductImage />', () => {
     const renderedComponent = shallow(
       <ProductImage item={item} />
     );
-    expect(renderedComponent.find(Products).length).toEqual(1);
+    expect(renderedComponent.find(ProductImage).length).toEqual(1);
   });
 });

@@ -18,5 +18,10 @@
     "id": "app.components.Error.text",
     "defaultMessage": "Something went wrong, please try again!",
     "message": "Something went wrong, please try again!"
+  },
+  {
+    "id": "app.components.ProductSpecs.quantity",
+    "defaultMessage": "Quantity:",
+    "message": "Quantity:"
   }
 ]
