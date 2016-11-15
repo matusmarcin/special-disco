@@ -5,7 +5,6 @@ import { createSelector } from 'reselect';
  */
 const selectProductsDomain = () => (state) => state.get('products');
 
-
 const selectLoading = () => createSelector(
   selectProductsDomain(),
   (substate) => substate.get('loading')

@@ -23,6 +23,8 @@ import Loading from 'components/Loading';
 import Error from 'components/Error';
 import ProductItem from 'components/ProductItem';
 
+import styles from './styles.css';
+
 export class Products extends React.Component { // eslint-disable-line react/prefer-stateless-function
   componentDidMount() {
     this.props.loadProducts();
@@ -41,7 +43,7 @@ export class Products extends React.Component { // eslint-disable-line react/pre
 
     // If we're not loading, don't have an error and there are products, show the products
     } else if (this.props.products !== false) {
-      products = (<List items={this.props.products} component={ProductItem} />);
+      products = (<List className={styles.list} items={this.props.products} component={ProductItem} />);
     }
 
     return products;

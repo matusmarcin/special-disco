@@ -145,12 +145,15 @@ router.get('/product/:slug', (req, res) => {
 
       // respond with data
       res.json({
-        name: row.name,
-        desc: row.description,
-        categories: JSON.stringify(cats),
-        images: row.images,
-        price: row.price,
-        sizes: row.sizes,
+        status: 'OK',
+        data: {
+          name: row.name,
+          desc: row.description,
+          categories: JSON.stringify(cats),
+          images: row.images,
+          price: row.price,
+          sizes: row.sizes,
+        },
       });
     });
   });

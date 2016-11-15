@@ -6,18 +6,16 @@
 
 import React from 'react';
 
-import styles from './styles.css';
-
 function List(props) {
   const ComponentToRender = props.component;
 
   // If we have items, render them
   if (props.items) {
     return (
-      <ul className={styles.list}>
+      <ul className={props.className}>
         {
           props.items.map((item, index) => (
-            <li key={`item-${index}`} className={styles.listItem}>
+            <li key={`item-${index}`}>
               <ComponentToRender item={item} />
             </li>
           ))
@@ -32,6 +30,7 @@ function List(props) {
 
 List.propTypes = {
   component: React.PropTypes.func.isRequired,
+  className: React.PropTypes.string,
   items: React.PropTypes.array,
 };
 

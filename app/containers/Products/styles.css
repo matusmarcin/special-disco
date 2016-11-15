@@ -1,8 +1,9 @@
 .list {
   list-style: none;
+  padding: 0;
 }
 
-.listItem {
+.list li {
   display: inline-block;
   vertical-align: top;
   width: 50%;
@@ -11,13 +12,13 @@
 }
 
 @media (min-width: 551px) {
-  .listItem {
+  .list li {
     width: 33.3333%;
   }
 }
 
 @media (min-width: 801px) {
-  .listItem {
+  .list li {
     width: 25%;
   }
 }
