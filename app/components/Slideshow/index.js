@@ -36,7 +36,7 @@ var Decorators = [{
 class Slideshow extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-    <Carousel autoplay={true}>
+    <Carousel autoplay={true} afterSlide={true} wrapAround={true}>
       <img src={bg2}/>
       <img src={bg1}/>
       <img src={bg3}/>
