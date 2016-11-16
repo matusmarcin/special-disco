@@ -8,10 +8,14 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   header: {
     id: 'app.components.Cart.header',
-    defaultMessage: 'This is your Cart',
+    defaultMessage: 'Shopping Bag',
+  },
+  subtotal: {
+    id: 'app.components.Cart.subtotal',
+    defaultMessage: 'Subtotal',
   },
   message: {
     id: 'app.components.Cart.message',
-    defaultMessage: 'Cart contains this products',
+    defaultMessage: 'There are no items in your shopping bag.',
   },
 });

@@ -16,6 +16,12 @@ export default function createRoutes(store) {
   // Create reusable async injectors using getAsyncInjectors factory
   const { injectReducer, injectSagas } = getAsyncInjectors(store); // eslint-disable-line no-unused-vars
 
+  Promise.all([
+    System.import('containers/ShoppingCart/reducer'),
+  ]).then(([reducer]) =>
+    injectReducer('shoppingCart', reducer.default)
+  ).catch(errorLoading);
+
   return [
     {
       path: '/',

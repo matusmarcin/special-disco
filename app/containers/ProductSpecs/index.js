@@ -22,6 +22,10 @@ import {
   decreaseCounter,
 } from './actions';
 
+import {
+    addItem,
+} from 'containers/ShoppingCart/actions';
+
 import ProductImage from 'components/ProductImage';
 import List from 'components/List';
 
@@ -84,7 +88,7 @@ export class ProductSpecs extends React.Component { // eslint-disable-line react
           <hr />
           <p>${item.price.toFixed(2)}</p>
           <hr />
-          <select onChange={(event) => this.props.pickSize(options[event.target.value])}>
+          <select name="size" onChange={(event) => this.props.pickSize(options[event.target.value])}>
             {
               options.map((size, index) => (
                 <option key={index} value={index}>{size.name}</option>
@@ -97,12 +101,14 @@ export class ProductSpecs extends React.Component { // eslint-disable-line react
           <button className={styles.button} onClick={() => this.props.decreaseCounter()}>
             <i className="fa fa-angle-down" aria-hidden="true"></i>
           </button>
-          <input className={styles.counter} value={this.props.counter} onChange={(event) => this.props.setCounter(event.target.value)} name="qty" type="tel" min="1" pattern="[0-9]*" />
+          <input name="qty" type="tel" className={styles.counter} value={this.props.counter} onChange={(event) => this.props.setCounter(event.target.value)} min="1" pattern="[0-9]*" />
           <button className={styles.button} onClick={() => this.props.increaseCounter()}>
             <i className="fa fa-angle-up" aria-hidden="true"></i>
           </button>
-          <button>
-          </button>
+          <br />
+          <input type="submit" value="Add to Cart" className={styles.addToCart} onClick={() => this.props.dispatch(addItem(item, this.props.size, this.props.counter))} />
+          <br />
+          {item.desc}
         </div>
       </div>
     );
@@ -110,8 +116,10 @@ export class ProductSpecs extends React.Component { // eslint-disable-line react
 }
 
 ProductSpecs.propTypes = {
+  dispatch: React.PropTypes.func.isRequired,
   item: React.PropTypes.object,
   image: React.PropTypes.string,
+  size: React.PropTypes.string,
   counter: React.PropTypes.number,
   pickImage: React.PropTypes.func,
   pickSize: React.PropTypes.func,

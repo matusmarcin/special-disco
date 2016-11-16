@@ -8,11 +8,7 @@ import React from 'react';
 
 import { Link } from 'react-router';
 
-//  import { FormattedMessage } from 'react-intl';
-//  import messages from './messages';
-
 import styles from './styles.css';
-
 
 function ProductItem(props) {
   const item = props.item;
@@ -36,7 +32,6 @@ function ProductItem(props) {
       {categories.slice(0, -2)}
       <h2><Link to={`/${item.slug}/products`}>{item.name}</Link></h2>
       ${item.price.toFixed(2)}
-      <button className="btn_addToCart" onClick={()=>addToCart(ProductItem)}>Add to Cart</button>
     </div>
   );
 }

@@ -5,13 +5,19 @@
 */
 
 import React from 'react';
+import { connect } from 'react-redux';
+
+import {
+  toggleMenu,
+} from 'containers/ShoppingCart/actions';
 
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
+
 import LogoImg from './images/clothesshop2.png';
 import styles from './styles.css';
 
-function Header() {
+function Header(props) {
   return (
     <header className={styles.header} role="banner">
       <nav className={styles.navUser}>
@@ -22,7 +28,15 @@ function Header() {
             <span>&nbsp;&nbsp;or&nbsp;&nbsp;</span>
             <a href="">SIGN UP</a>
           </li>
-          <li><a href="">CART</a></li>
+          <li><a
+            href="/cart"
+            onClick={
+              (event) => {
+                props.dispatch(toggleMenu());
+                event.preventDefault();
+              }
+            }
+          >CART</a></li>
         </ul>
       </nav>
       <div className={styles.headerLogo}>
@@ -48,4 +62,8 @@ function Header() {
   );
 }
 
-export default Header;
+Header.propTypes = {
+  dispatch: React.PropTypes.func.isRequired,
+};
+
+export default connect()(Header);

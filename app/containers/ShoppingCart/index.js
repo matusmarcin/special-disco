@@ -6,34 +6,51 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import Helmet from 'react-helmet';
-import selectShoppingCart from './selectors';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
-import styles from './styles.css';
+import { createStructuredSelector } from 'reselect';
+
+import {
+  selectShow,
+  selectItems,
+} from './selectors';
+
+import {
+  toggleMenu,
+  addItem,
+} from './actions';
+
+import Cart from 'components/Cart';
 
 export class ShoppingCart extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
-    return (
-      <div className={styles.shoppingCart}>
-        <Helmet
-          title="ShoppingCart"
-          meta={[
-            { name: 'description', content: 'Description of ShoppingCart' },
-          ]}
-        />
-        <FormattedMessage {...messages.header} />
-      </div>
-    );
+    if (this.props.show) {
+      return (
+        <Cart items={this.props.items} />
+      );
+    }
+
+    return null;
   }
 }
 
-const mapStateToProps = selectShoppingCart();
+ShoppingCart.propTypes = {
+  show: React.PropTypes.bool,
+  items: React.PropTypes.oneOfType([
+    React.PropTypes.array,
+    React.PropTypes.bool,
+  ]),
+};
 
-function mapDispatchToProps(dispatch) {
+export function mapDispatchToProps(dispatch) {
   return {
+    toggleMenu: () => dispatch(toggleMenu()),
+    addItem: (item) => dispatch(addItem(item)),
     dispatch,
   };
 }
+
+const mapStateToProps = createStructuredSelector({
+  show: selectShow(),
+  items: selectItems(),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShoppingCart);

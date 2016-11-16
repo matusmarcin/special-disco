@@ -79,6 +79,21 @@
   text-align: center;
 }
 
+.addToCart {
+  cursor: pointer;
+  background: #7CFC00;
+  margin: 25px 0;
+  padding: 4px 10px;
+  border-radius: 6px;
+  color: white;
+  transition: background ease 0.3s;
+}
+
+.addToCart:hover,
+.addToCart:focus {
+  background: #63C900;
+}
+
 @media screen and (max-width: 780px) {
   .productSpecs div > img {
     width: 100%;

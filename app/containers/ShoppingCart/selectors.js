@@ -5,21 +5,18 @@ import { createSelector } from 'reselect';
  */
 const selectShoppingCartDomain = () => (state) => state.get('shoppingCart');
 
-/**
- * Other specific selectors
- */
-
-
-/**
- * Default selector used by ShoppingCart
- */
-
-const selectShoppingCart = () => createSelector(
+const selectShow = () => createSelector(
   selectShoppingCartDomain(),
-  (substate) => substate.toJS()
+  (substate) => substate.get('show')
 );
 
-export default selectShoppingCart;
+const selectItems = () => createSelector(
+  selectShoppingCartDomain(),
+  (substate) => substate.get('items')
+);
+
 export {
   selectShoppingCartDomain,
+  selectShow,
+  selectItems,
 };

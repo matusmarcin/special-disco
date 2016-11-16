@@ -4,4 +4,5 @@
  *
  */
 
-export const DEFAULT_ACTION = 'app/ShoppingCart/DEFAULT_ACTION';
+export const TOGGLE_MENU = 'app/ShoppingCart/TOGGLE_MENU';
+export const ADD_ITEM = 'app/ShoppingCart/ADD_ITEM';
