@@ -45,6 +45,27 @@ export default function createRoutes(store) {
         importModules.catch(errorLoading);
       },
     }, {
+      path: '/:slug/categories',
+      name: 'categoriesPage',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/HomePage'),
+          System.import('containers/Products/reducer'),
+          System.import('containers/Products/sagas'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([component, reducer, sagas]) => {
+          injectReducer('products', reducer.default);
+          injectSagas(sagas.default);
+
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
       path: '/:slug/products',
       name: 'productsPage',
       getComponent(nextState, cb) {

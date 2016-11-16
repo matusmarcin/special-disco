@@ -7,6 +7,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { Link } from 'react-router';
+
 import {
   toggleMenu,
 } from 'containers/ShoppingCart/actions';
@@ -22,7 +24,6 @@ function Header(props) {
     <header className={styles.header} role="banner">
       <nav className={styles.navUser}>
         <ul className={styles.navUserSection}>
-          <li><a href="">LINK</a></li>
           <li>
             <a href="">LOGIN</a>
             <span>&nbsp;&nbsp;or&nbsp;&nbsp;</span>
@@ -47,15 +48,15 @@ function Header(props) {
           <li className={styles.navIcon}>
             <a href="">&#9776;</a>
           </li>
-          <li><a href="">ALL</a></li>
-          <li><a href="">SUMMER COLLECTION</a></li>
-          <li><a href="">T-SHIRTS</a></li>
-          <li><a href="">HOODIES</a></li>
-          <li><a href="">SHORTS</a></li>
-          <li><a href="">POLOS</a></li>
-          <li><a href="">SWEATERS</a></li>
-          <li><a href="">JEANS</a></li>
-          <li><a href="">PANTS</a></li>
+          <li><Link to="/">ALL</Link></li>
+          <li><Link to="/summer-collection/categories">SUMMER COLLECTION</Link></li>
+          <li><Link to="/t-shirts/categories">T-SHIRTS</Link></li>
+          <li><Link to="/hoodies-and-sweatshirts/categories">HOODIES</Link></li>
+          <li><Link to="/shorts/categories">SHORTS</Link></li>
+          <li><Link to="/polos/categories">POLOS</Link></li>
+          <li><Link to="/sweaters/categories">SWEATERS</Link></li>
+          <li><Link to="/jeans/categories">JEANS</Link></li>
+          <li><Link to="/pants/categories">PANTS</Link></li>
         </ul>
       </nav>
     </header>

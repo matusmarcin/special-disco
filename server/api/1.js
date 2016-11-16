@@ -54,11 +54,10 @@ router.get('/products/:slug', (req, res) => {
 
       const datas = [];
 
-      Object.keys(rows).forEach((i) => {
-        const row = rows[i];
+      rows.forEach((row) => {
         let rowCat = row.categories;
 
-        if (rowCat.indexOf(reqCat)) {
+        if (rowCat.indexOf(reqCat) !== -1) {
           let data = [];
 
           rowCat = JSON.parse(rowCat);

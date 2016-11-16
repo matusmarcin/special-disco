@@ -1,4 +1,4 @@
-import { take, call, put, fork, cancel } from 'redux-saga/effects';
+import { take, call, put, select, fork, cancel } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
 import request from 'utils/request';
 
@@ -12,12 +12,24 @@ import {
   prodLoadError,
 } from './actions';
 
+import { selectLocationState } from 'containers/App/selectors';
+
 /**
  * API products request/response handler
  */
 export function* getProducts() {
+  // Select product slug from store
+  const state = yield select(selectLocationState());
+  let path = state.locationBeforeTransitions.pathname.split('/');
+
+  if (path.length === 2) {
+    path = `${PRODUCTS_PAGE}summer-collection`;
+  } else {
+    path = `${PRODUCTS_PAGE}${path[1]}`;
+  }
+
   // Call our request helper (see 'utils/request')
-  const products = yield call(request, PRODUCTS_PAGE);
+  const products = yield call(request, path);
 
   if (!products.err) {
     yield put(productsLoaded(products.data));
