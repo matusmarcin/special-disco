@@ -1,17 +1,42 @@
 .cart {
-  position: fixed;
-  width: 50%;
-  top: 25%;
-  left: 25%;
-  background-color: #2A2C36;
+  position: absolute;
+  width: 40%;
+  top: 47px;
+  right: 1px;
+  background-color: #4f5366;
   color: #FFF;
+  z-index: 10;
+  border-radius: 5px;
+  padding: 5px 15px;
+}
+
+.left {
+  font-weight: bold;
+  float: left;
+  font-size: 17px;
+  text-transform: uppercase;
+}
+
+.right {
+  font-style: italic;
+  float: right;
+  font-size: 18px;
+} 
+
+.clear {
+  clear: both;
+}
+
+ul {
+  padding: 5px 5px;
 }
 
 .list li {
   display: inline-block;
-  width: 20%;
+  width: 33%;
+  padding: 5px 5px;
 }
 
 .list li img {
   width: 100%;
-}
+ }

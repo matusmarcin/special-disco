@@ -30,11 +30,11 @@ export default class App extends React.Component { // eslint-disable-line react/
     return (
       <div>
         <Header />
+         <ShoppingCart />
         <Slideshow />
         <div className={styles.container}>
           {React.Children.toArray(this.props.children)}
         </div>
-        <ShoppingCart />
         <Footer />
       </div>
     );

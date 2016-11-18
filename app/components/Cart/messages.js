@@ -12,7 +12,7 @@ export default defineMessages({
   },
   subtotal: {
     id: 'app.components.Cart.subtotal',
-    defaultMessage: 'Subtotal',
+    defaultMessage: 'Subtotal ',
   },
   message: {
     id: 'app.components.Cart.message',

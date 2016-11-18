@@ -11,7 +11,7 @@ function ProductCart(props) {
 
   let name = null;
   if (item.name.length > 13) {
-    name = `${item.name.substring(0, 10)}...`;
+    name = `${item.name.substring(0, 20)}...`;
   } else {
     name = item.name;
   }
@@ -19,9 +19,8 @@ function ProductCart(props) {
   return (
     <div>
       <img src={`/img/products/${item.img}`} alt={name} /><br />
-      {item.name} ({item.size})<br />
-      ${item.price.toFixed(2)}<br />
-      x{item.count}
+      {item.name} - {item.size} (x {item.count})<br />
+      $ {item.price.toFixed(2)}<br />
     </div>
   );
 }
