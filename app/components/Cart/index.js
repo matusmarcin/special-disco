@@ -47,6 +47,9 @@ function Cart(props) {
        <div className={styles.clear}></div>
       <hr />
       {message}
+      <div className={styles.div_checkout}>
+        <button className={styles.btn_checkout}>CheckOut</button>
+      </div>
     </div>
   );
 }

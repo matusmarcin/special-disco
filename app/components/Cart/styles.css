@@ -1,7 +1,7 @@
 .cart {
   position: absolute;
   width: 40%;
-  top: 47px;
+  top: 55px;
   right: 1px;
   background-color: #4f5366;
   color: #FFF;
@@ -13,7 +13,7 @@
 .left {
   font-weight: bold;
   float: left;
-  font-size: 17px;
+  font-size: 19px;
   text-transform: uppercase;
 }
 
@@ -28,7 +28,7 @@
 }
 
 ul {
-  padding: 5px 5px;
+  padding: 10px 5px;
 }
 
 .list li {
@@ -37,6 +37,30 @@ ul {
   padding: 5px 5px;
 }
 
+.list li img:hover,
+.list li img:focus {
+  cursor: pointer;
+  -moz-box-shadow: 0 0 10px #ccc; 
+  -webkit-box-shadow: 0 0 10px #ccc;
+  box-shadow: 0 0 10px #ccc; 
+}
+
 .list li img {
   width: 100%;
+ }
+
+.btn_checkout {
+  text-align: center;
+  padding: 5px 10px;
+  background: #7cfc00;
+  border-radius: 6px;
+  font-size: 17px;
+  margin-bottom: 15px;
+  margin-left: 7px;
+ }
+
+.btn_checkout:hover, 
+.btn_checkout:focus {
+  background: #5bb800;
+  cursor: pointer;
  }
