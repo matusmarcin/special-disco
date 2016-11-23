@@ -13,11 +13,6 @@ import {
   selectItems,
 } from './selectors';
 
-import {
-  toggleMenu,
-  addItem,
-} from './actions';
-
 import Cart from 'components/Cart';
 
 export class ShoppingCart extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -40,17 +35,9 @@ ShoppingCart.propTypes = {
   ]),
 };
 
-export function mapDispatchToProps(dispatch) {
-  return {
-    toggleMenu: () => dispatch(toggleMenu()),
-    addItem: (item) => dispatch(addItem(item)),
-    dispatch,
-  };
-}
-
 const mapStateToProps = createStructuredSelector({
   show: selectShow(),
   items: selectItems(),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShoppingCart);
+export default connect(mapStateToProps, null)(ShoppingCart);

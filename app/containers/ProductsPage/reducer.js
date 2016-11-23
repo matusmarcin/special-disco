@@ -6,32 +6,69 @@
 
 import { fromJS } from 'immutable';
 import {
-  LOAD_PRODUCT,
-  LOAD_PRODUCT_SUCCESS,
-  LOAD_PRODUCT_ERROR,
+  PICK_IMAGE,
+  PICK_SIZE,
+  SET_PRODUCT,
+  DEC_MAX_COUNT,
+  SET_COUNTER,
+  INCREASE_COUNTER,
+  DECREASE_COUNTER,
 } from './constants';
 
 const initialState = fromJS({
+  image: '',
+  size: '',
   product: false,
-  loading: false,
-  error: false,
+  counter: 1,
+  max: 1,
 });
 
 function productsPageReducer(state = initialState, action) {
   switch (action.type) {
-    case LOAD_PRODUCT:
+    case PICK_IMAGE:
       return state
-        .set('loading', true)
-        .set('error', false)
-        .set('product', false);
-    case LOAD_PRODUCT_SUCCESS:
+        .set('image', action.image);
+    case PICK_SIZE:
+      if(action.count > 0) {
+        state = state.set('counter', 1);
+      }
+      else {
+        state = state.set('counter', 0);
+      }
       return state
-        .set('product', action.product)
-        .set('loading', false);
-    case LOAD_PRODUCT_ERROR:
+        .set('max', action.count)
+        .set('size', action.name);
+    case SET_PRODUCT:
       return state
-        .set('error', action.error)
-        .set('loading', false);
+        .set('product', action.product);
+    case DEC_MAX_COUNT:
+      state = state.set('max', state.get('max') - action.count);
+      if(state.get('max') > 0) {
+        state = state.set('counter', 1);
+      }
+      else {
+        state = state.set('counter', 0);
+      }
+      return state;
+    case SET_COUNTER:
+      if (action.count > state.get('max')) {
+        return state
+          .set('counter', state.get('max'));
+      }
+      return state
+        .set('counter', action.count);
+    case INCREASE_COUNTER:
+      if (state.get('counter') < state.get('max')) {
+        return state
+          .set('counter', state.get('counter') + 1);
+      }
+      return state;
+    case DECREASE_COUNTER:
+      if (state.get('counter') > 1) {
+        return state
+          .set('counter', state.get('counter') - 1);
+      }
+      return state;
     default:
       return state;
   }

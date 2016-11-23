@@ -1,3 +1,31 @@
+/**
+ * The global state selectors
+ */
+
+import { createSelector } from 'reselect';
+
+const selectGlobal = () => (state) => state.get('global');
+
+const selectCategories = () => createSelector(
+  selectGlobal(),
+  (globalState) => globalState.get('categories')
+);
+
+const selectProducts = () => createSelector(
+  selectGlobal(),
+  (globalState) => globalState.get('products')
+);
+
+const selectLoading = () => createSelector(
+  selectGlobal(),
+  (globalState) => globalState.get('loading')
+);
+
+const selectError = () => createSelector(
+  selectGlobal(),
+  (globalState) => globalState.get('error')
+);
+
 // selectLocationState expects a plain JS object for the routing state
 const selectLocationState = () => {
   let prevRoutingState;
@@ -16,5 +44,10 @@ const selectLocationState = () => {
 };
 
 export {
+  selectGlobal,
+  selectCategories,
+  selectProducts,
+  selectLoading,
+  selectError,
   selectLocationState,
 };

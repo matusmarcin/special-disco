@@ -10,7 +10,7 @@
     "message": "The journey is the reward."
   },
   {
-    "id": "app.components.HomePage.header",
+    "id": "app.components.CategoriesPage.header",
     "defaultMessage": "Products",
     "message": "Products"
   },
