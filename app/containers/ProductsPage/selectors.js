@@ -5,24 +5,30 @@ import { createSelector } from 'reselect';
  */
 const selectProductsPageDomain = () => (state) => state.get('productsPage');
 
-const selectLoading = () => createSelector(
-  selectProductsPageDomain(),
-  (substate) => substate.get('loading')
-);
-
-const selectError = () => createSelector(
-  selectProductsPageDomain(),
-  (substate) => substate.get('error')
-);
-
 const selectProduct = () => createSelector(
   selectProductsPageDomain(),
   (substate) => substate.get('product')
 );
 
+const selectImage = () => createSelector(
+  selectProductsPageDomain(),
+  (substate) => substate.get('image')
+);
+
+const selectSize = () => createSelector(
+  selectProductsPageDomain(),
+  (substate) => substate.get('size')
+);
+
+const selectCounter = () => createSelector(
+  selectProductsPageDomain(),
+  (substate) => substate.get('counter')
+);
+
 export {
   selectProductsPageDomain,
-  selectLoading,
-  selectError,
   selectProduct,
+  selectImage,
+  selectSize,
+  selectCounter,
 };

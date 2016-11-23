@@ -8,6 +8,7 @@ import {
   LOAD_PRODUCTS,
   LOAD_PRODUCTS_SUCCESS,
   LOAD_PRODUCTS_ERROR,
+  DEC_SIZE_COUNT,
 } from './constants';
 
 /**
@@ -24,14 +25,16 @@ export function loadProducts() {
 /**
  * Dispatched when the products are loaded by the request saga
  *
- * @param  {array} products The products data
+ * @param  {array} products   The products data
+ * @param  {array} categories The categories data
  *
- * @return {object}         An action object with a type of LOAD_PRODUCTS_SUCCESS passing the products
+ * @return {object}           An action object with a type of LOAD_PRODUCTS_SUCCESS passing the products
  */
-export function productsLoaded(products) {
+export function productsLoaded(products, categories) {
   return {
     type: LOAD_PRODUCTS_SUCCESS,
     products,
+    categories,
   };
 }
 
@@ -46,5 +49,23 @@ export function prodLoadError(error) {
   return {
     type: LOAD_PRODUCTS_ERROR,
     error,
+  };
+}
+
+/**
+ * Dispatched when decreasing count of available sizes
+ *
+ * @param  {string} size  The size
+ * @param  {string} slug  The product slug
+ * @param  {number} count The count
+ *
+ * @return {object}       An action object with a type of DEC_SIZE_COUNT passing the size, slug and count
+ */
+export function decSizeCount(size, slug, count) {
+  return {
+    type: DEC_SIZE_COUNT,
+    size,
+    slug,
+    count,
   };
 }

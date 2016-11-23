@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 
 import {
   pickImage,
-} from 'containers/ProductSpecs/actions';
+} from 'containers/ProductsPage/actions';
 
 function ProductImage(props) {
   const item = props.item;

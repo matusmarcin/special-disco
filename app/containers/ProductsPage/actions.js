@@ -5,46 +5,113 @@
  */
 
 import {
-  LOAD_PRODUCT,
-  LOAD_PRODUCT_SUCCESS,
-  LOAD_PRODUCT_ERROR,
+  PICK_IMAGE,
+  PICK_SIZE,
+  SET_PRODUCT,
+  DEC_MAX_COUNT,
+  SET_COUNTER,
+  INCREASE_COUNTER,
+  DECREASE_COUNTER,
 } from './constants';
 
 /**
- * Load the product, this action starts the request saga
+ * Select the image, dispatched when user click on image thumb
  *
- * @return {object} An action object with a type of LOAD_PRODUCT
+ * @param  {string} image The image name
+ *
+ * @return {object}       An action object with a type of PICK_IMAGE passing the image
  */
-export function loadProduct() {
+export function pickImage(image) {
   return {
-    type: LOAD_PRODUCT,
+    type: PICK_IMAGE,
+    image,
   };
 }
 
 /**
- * Dispatched when the product is loaded by the request saga
+ * Select the size, dispatched when user select the size from options
  *
- * @param  {object} product The product data
+ * @param  {object} size The product size
  *
- * @return {object}         An action object with a type of LOAD_PRODUCT_SUCCESS passing the product
+ * @return {object}      An action object with a type of PICK_SIZE passing the name and count
  */
-export function productLoaded(product) {
+export function pickSize(size) {
   return {
-    type: LOAD_PRODUCT_SUCCESS,
-    product,
+    type: PICK_SIZE,
+    name: size.name,
+    count: size.count,
   };
 }
 
 /**
- * Dispatched when loading the product fails
+ * Set the product
  *
- * @param  {object} error The error
+ * @param  {object} product The product
  *
- * @return {object}       An action object with a type of LOAD_PRODUCT_ERROR passing the error
+ * @return {object}         An action object with a type of SET_PRODUCT passing the product
  */
-export function prodLoadError(error) {
+export function setProduct(product) {
   return {
-    type: LOAD_PRODUCT_ERROR,
-    error,
+    type: SET_PRODUCT,
+    product
+  };
+}
+
+/**
+ * Dispatched when decreasing count of available sizes
+ *
+ * @param  {number} count The count
+ *
+ * @return {object}       An action object with a type of DEC_MAX_COUNT passing the count
+ */
+export function decMaxCount(count) {
+  return {
+    type: DEC_MAX_COUNT,
+    count,
+  };
+}
+
+/**
+ * Dispatched when user change the count in input
+ *
+ * @param  {number} count The item count to buy
+ *
+ * @return {object} An action object with a type of SET_COUNTER passing the count
+ */
+export function setCounter(count) {
+  const countNum = parseInt(count, 10);
+
+  if (countNum >= 1) {
+    return {
+      type: SET_COUNTER,
+      count: countNum,
+    };
+  }
+
+  return {
+    type: SET_COUNTER,
+    count: 1,
+  };
+}
+
+/**
+ * Dispatched when user click on add button
+ *
+ * @return {object} An action object with a type of INCREASE_COUNTER
+ */
+export function increaseCounter() {
+  return {
+    type: INCREASE_COUNTER,
+  };
+}
+
+/**
+ * Dispatched when user click on subtract button
+ *
+ * @return {object} An action object with a type of DECREASE_COUNTER
+ */
+export function decreaseCounter() {
+  return {
+    type: DECREASE_COUNTER,
   };
 }

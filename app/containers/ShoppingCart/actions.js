@@ -31,7 +31,7 @@ export function toggleMenu() {
  */
 export function addItem(item, size, count) {
   const newItem = {
-    img: JSON.parse(item.images)[0],
+    img: item.images[0],
     name: item.name,
     price: item.price,
     size,

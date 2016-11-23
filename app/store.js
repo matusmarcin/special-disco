@@ -7,6 +7,7 @@ import { fromJS } from 'immutable';
 import { routerMiddleware } from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';
 import createReducer from './reducers';
+import appSaga from 'containers/App/sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 const devtools = window.devToolsExtension || (() => (noop) => noop);
@@ -30,6 +31,9 @@ export default function configureStore(initialState = {}, history) {
     fromJS(initialState),
     compose(...enhancers)
   );
+
+  //run saga from 'containers/App/sagas' here
+  sagaMiddleware.run(appSaga);
 
   // Create hook for async sagas
   store.runSaga = sagaMiddleware.run;

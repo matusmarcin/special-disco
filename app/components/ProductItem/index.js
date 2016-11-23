@@ -20,16 +20,18 @@ function ProductItem(props) {
     name = item.name;
   }
 
-  let categories = '';
-  const json = JSON.parse(item.categories);
-  for (let i = 0, len = json.length; i < len; i += 1) {
-    categories += `${json[i]}, `;
+  const categories = [];
+  for (let i = 0, len = item.categories.length; i < len; i += 1) {
+    const category = item.categories[i];
+    categories.push(<Link key={i} to={`/${category.slug}/categories`}>{category.name}</Link>);
+    categories.push(', ');
   }
+  categories.pop();
 
   return (
     <div className={styles.itemContent}>
       <Link to={`/${item.slug}/products`}><img src={`/img/products/${item.img}`} alt={name} /></Link><br />
-      {categories.slice(0, -2)}
+      {categories}
       <h2><Link to={`/${item.slug}/products`}>{item.name}</Link></h2>
       ${item.price.toFixed(2)}
     </div>

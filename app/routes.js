@@ -27,43 +27,17 @@ export default function createRoutes(store) {
       path: '/',
       name: 'home',
       getComponent(nextState, cb) {
-        const importModules = Promise.all([
-          System.import('containers/HomePage'),
-          System.import('containers/Products/reducer'),
-          System.import('containers/Products/sagas'),
-        ]);
-
-        const renderRoute = loadModule(cb);
-
-        importModules.then(([component, reducer, sagas]) => {
-          injectReducer('products', reducer.default);
-          injectSagas(sagas.default);
-
-          renderRoute(component);
-        });
-
-        importModules.catch(errorLoading);
+          System.import('containers/CategoriesPage')
+            .then(loadModule(cb))
+            .catch(errorLoading)
       },
     }, {
       path: '/:slug/categories',
       name: 'categoriesPage',
       getComponent(nextState, cb) {
-        const importModules = Promise.all([
-          System.import('containers/HomePage'),
-          System.import('containers/Products/reducer'),
-          System.import('containers/Products/sagas'),
-        ]);
-
-        const renderRoute = loadModule(cb);
-
-        importModules.then(([component, reducer, sagas]) => {
-          injectReducer('products', reducer.default);
-          injectSagas(sagas.default);
-
-          renderRoute(component);
-        });
-
-        importModules.catch(errorLoading);
+          System.import('containers/CategoriesPage')
+            .then(loadModule(cb))
+            .catch(errorLoading)
       },
     }, {
       path: '/:slug/products',
@@ -71,17 +45,13 @@ export default function createRoutes(store) {
       getComponent(nextState, cb) {
         const importModules = Promise.all([
           System.import('containers/ProductsPage/reducer'),
-          System.import('containers/ProductsPage/sagas'),
           System.import('containers/ProductsPage'),
-          System.import('containers/ProductSpecs/reducer'),
         ]);
 
         const renderRoute = loadModule(cb);
 
-        importModules.then(([reducer, sagas, component, specs]) => {
+        importModules.then(([reducer, component]) => {
           injectReducer('productsPage', reducer.default);
-          injectReducer('productSpecs', specs.default);
-          injectSagas(sagas.default);
 
           renderRoute(component);
         });
