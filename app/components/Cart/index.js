@@ -30,20 +30,26 @@ function Cart(props) {
     message = (
       <List className={styles.list} items={props.items} component={ProductCart} />
     );
+
   }
 
   return (
     <div className={styles.cart}>
-      <div>
-        <FormattedMessage {...messages.header} />
+      <div className={styles.cart_info}>
+        <div className={styles.left}>
+          <FormattedMessage {...messages.header} />
+        </div>
+        <div className={styles.right}>  
+         <FormattedMessage {...messages.subtotal} />
+         ${price.toFixed(2)}
+        </div>
       </div>
-      <div>
-        <FormattedMessage {...messages.subtotal} />
-        {price.toFixed(2)}
-      </div>
-      <div></div>
+       <div className={styles.clear}></div>
       <hr />
       {message}
+      <div className={styles.div_checkout}>
+        <button className={styles.btn_checkout}>CheckOut</button>
+      </div>
     </div>
   );
 }

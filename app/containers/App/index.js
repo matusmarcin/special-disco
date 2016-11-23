@@ -58,11 +58,11 @@ export class App extends React.Component { // eslint-disable-line react/prefer-s
     return (
       <div>
         <Header />
+        <ShoppingCart />
         <Slideshow />
         <div className={styles.container}>
           {products}
         </div>
-        <ShoppingCart />
         <Footer />
       </div>
     );
