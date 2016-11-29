@@ -27,17 +27,17 @@ export default function createRoutes(store) {
       path: '/',
       name: 'home',
       getComponent(nextState, cb) {
-          System.import('containers/CategoriesPage')
-            .then(loadModule(cb))
-            .catch(errorLoading)
+        System.import('containers/CategoriesPage')
+          .then(loadModule(cb))
+          .catch(errorLoading);
       },
     }, {
       path: '/:slug/categories',
       name: 'categoriesPage',
       getComponent(nextState, cb) {
-          System.import('containers/CategoriesPage')
-            .then(loadModule(cb))
-            .catch(errorLoading)
+        System.import('containers/CategoriesPage')
+          .then(loadModule(cb))
+          .catch(errorLoading);
       },
     }, {
       path: '/:slug/products',

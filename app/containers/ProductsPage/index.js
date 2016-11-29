@@ -52,16 +52,16 @@ export class ProductsPage extends React.Component { // eslint-disable-line react
     let item;
 
     this.props.products.forEach((product) => {
-      if(product.slug !== this.props.params.slug) {
+      if (product.slug !== this.props.params.slug) {
         return;
       }
 
       const productCat = JSON.parse(product.categories);
-      let data = [];
-      
+      const data = [];
+
       productCat.forEach((id) => {
-        const category = this.props.categories[id-1];
-        if(category !== undefined) {
+        const category = this.props.categories[id - 1];
+        if (category !== undefined) {
           data.push({
             name: category.name,
             slug: category.slug,
@@ -84,10 +84,10 @@ export class ProductsPage extends React.Component { // eslint-disable-line react
     this.props.pickImage(item.images[0]);
     this.props.pickSize(item.sizes[0]);
   }
-  
+
   render() {
     const item = this.props.product;
-    if(!item) {
+    if (!item) {
       return null;
     }
 
@@ -99,7 +99,7 @@ export class ProductsPage extends React.Component { // eslint-disable-line react
     }
 
     const categories = [];
-    for (let i = 0, len = item.categories.length; i < len; i++) {
+    for (let i = 0, len = item.categories.length; i < len; i += 1) {
       const category = item.categories[i];
       categories.push(<Link key={i} to={`/${category.slug}/categories`}>{category.name}</Link>);
       categories.push(', ');
@@ -107,7 +107,7 @@ export class ProductsPage extends React.Component { // eslint-disable-line react
     categories.pop();
 
     const images = [];
-    for (let i = 0, len = item.images.length; i < len; i++) {
+    for (let i = 0, len = item.images.length; i < len; i += 1) {
       images.push({
         img: item.images[i],
         name,
@@ -115,7 +115,7 @@ export class ProductsPage extends React.Component { // eslint-disable-line react
     }
 
     const options = [];
-    for (let i = 0, len = item.sizes.length; i < len; i++) {
+    for (let i = 0, len = item.sizes.length; i < len; i += 1) {
       const size = item.sizes[i];
       options.push({
         name: size.name,
@@ -149,20 +149,33 @@ export class ProductsPage extends React.Component { // eslint-disable-line react
           <button className={styles.button} onClick={() => this.props.decreaseCounter()}>
             <i className="fa fa-angle-down" aria-hidden="true"></i>
           </button>
-          <input name="qty" type="tel" className={styles.counter} value={this.props.counter} onChange={
-            (event) => this.props.setCounter(event.target.value)
-          } min="1" pattern="[0-9]*" />
+          <input
+            name="qty"
+            type="tel"
+            className={styles.counter}
+            value={this.props.counter}
+            onChange={
+              (event) => this.props.setCounter(event.target.value)
+            }
+            min="1"
+            pattern="[0-9]*"
+          />
           <button className={styles.button} onClick={() => this.props.increaseCounter()}>
             <i className="fa fa-angle-up" aria-hidden="true"></i>
           </button>
           <br />
-          <input type="submit" value="Add to Cart" className={styles.addToCart} onClick={
-            () => {
-              this.props.dispatch(addItem(item, this.props.size, this.props.counter));
-              this.props.dispatch(decSizeCount(this.props.size, item.slug, this.props.counter));
-              this.props.decMaxCount(this.props.counter);
+          <input
+            type="submit"
+            value="Add to Cart"
+            className={styles.addToCart}
+            onClick={
+              () => {
+                this.props.dispatch(addItem(item, this.props.size, this.props.counter));
+                this.props.dispatch(decSizeCount(this.props.size, item.slug, this.props.counter));
+                this.props.decMaxCount(this.props.counter);
+              }
             }
-          } />
+          />
           <br />
           {item.desc}
         </div>
@@ -173,6 +186,7 @@ export class ProductsPage extends React.Component { // eslint-disable-line react
 
 ProductsPage.propTypes = {
   dispatch: React.PropTypes.func.isRequired,
+  params: React.PropTypes.array,
   product: React.PropTypes.oneOfType([
     React.PropTypes.object,
     React.PropTypes.bool,
@@ -184,6 +198,8 @@ ProductsPage.propTypes = {
   counter: React.PropTypes.number,
   pickImage: React.PropTypes.func,
   pickSize: React.PropTypes.func,
+  setProduct: React.PropTypes.func,
+  decMaxCount: React.PropTypes.func,
   setCounter: React.PropTypes.func,
   increaseCounter: React.PropTypes.func,
   decreaseCounter: React.PropTypes.func,

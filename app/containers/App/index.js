@@ -70,10 +70,6 @@ export class App extends React.Component { // eslint-disable-line react/prefer-s
 }
 
 App.propTypes = {
-  categories: React.PropTypes.oneOfType([
-    React.PropTypes.array,
-    React.PropTypes.bool,
-  ]),
   products: React.PropTypes.oneOfType([
     React.PropTypes.array,
     React.PropTypes.bool,

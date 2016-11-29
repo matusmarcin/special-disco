@@ -32,7 +32,7 @@ export default function configureStore(initialState = {}, history) {
     compose(...enhancers)
   );
 
-  //run saga from 'containers/App/sagas' here
+  // run saga from 'containers/App/sagas' here
   sagaMiddleware.run(appSaga);
 
   // Create hook for async sagas

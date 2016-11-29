@@ -1,17 +1,19 @@
 import expect from 'expect';
-import productsReducer from '../reducer';
+import appReducer from '../reducer';
 import { fromJS } from 'immutable';
 
 import {
   loadProducts,
   productsLoaded,
   prodLoadError,
+  decSizeCount,
 } from '../actions';
 
-describe('productsReducer', () => {
+describe('appReducer', () => {
   let state;
   beforeEach(() => {
     state = fromJS({
+      categories: false,
       products: false,
       loading: false,
       error: false,
@@ -20,27 +22,32 @@ describe('productsReducer', () => {
 
   it('should return the initial state', () => {
     const expectedResult = state;
-    expect(productsReducer(undefined, {})).toEqual(expectedResult);
+    expect(appReducer(undefined, {})).toEqual(expectedResult);
   });
 
   it('should handle the loadProducts action correctly', () => {
     const expectedResult = state
+      .set('categories', false)
+      .set('products', false)
       .set('loading', true)
-      .set('error', false)
-      .set('products', false);
+      .set('error', false);
 
-    expect(productsReducer(state, loadProducts())).toEqual(expectedResult);
+    expect(appReducer(state, loadProducts())).toEqual(expectedResult);
   });
 
   it('should handle the productsLoaded action correctly', () => {
-    const fixture = [{
+    const fixtureCat = [{
+      name: 'Summer collection',
+    }];
+    const fixtureProd = [{
       name: 'Textured Jersey Henley',
     }];
     const expectedResult = state
-      .set('products', fixture)
+      .set('categories', fixtureCat)
+      .set('products', fixtureProd)
       .set('loading', false);
 
-    expect(productsReducer(state, productsLoaded(fixture))).toEqual(expectedResult);
+    expect(appReducer(state, productsLoaded(fixtureProd, fixtureCat))).toEqual(expectedResult);
   });
 
   it('should handle the prodLoadError action correctly', () => {
@@ -51,6 +58,40 @@ describe('productsReducer', () => {
       .set('error', fixture)
       .set('loading', false);
 
-    expect(productsReducer(state, prodLoadError(fixture))).toEqual(expectedResult);
+    expect(appReducer(state, prodLoadError(fixture))).toEqual(expectedResult);
+  });
+
+  it('should handle the decSizeCount action correctly', () => {
+    const defaultProducts = [{
+      slug: 'textured-jersey-henley',
+      sizes: [
+        {
+          name: 'S',
+          count: 1,
+        },
+      ],
+    }];
+
+    const fixtureSize = 'S';
+    const fixtureSlug = 'textured-jersey-henley';
+    const fixtureCount = 1;
+
+    const expectedResult = state.set('products', defaultProducts.forEach(
+      (product) => {
+        if (product.slug !== fixtureSlug) {
+          return;
+        }
+
+        product.sizes.forEach((size) => {
+          if (size.name === fixtureSize) {
+            size.count -= fixtureCount; // eslint-disable-line no-param-reassign
+          }
+        });
+      })
+    );
+
+    expect(appReducer(
+      state.set('products', defaultProducts),
+      decSizeCount(fixtureSize, fixtureSlug, fixtureCount))).toEqual(expectedResult);
   });
 });

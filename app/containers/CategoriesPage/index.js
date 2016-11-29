@@ -23,19 +23,18 @@ import styles from './styles.css';
 
 function CategoriesPage(props) {
   const products = [];
-  if(props.params.slug !== undefined) {
+  if (props.params.slug !== undefined) {
     props.products.forEach((product) => {
       const productCat = JSON.parse(product.categories);
       let data = [];
       let found = false;
-      
+
       productCat.forEach((id) => {
-        const category = props.categories[id-1];
-        if(category !== undefined) {
-          if(props.params.slug === category.slug) {
+        const category = props.categories[id - 1];
+        if (category !== undefined) {
+          if (props.params.slug === category.slug) {
             found = true;
-          }
-          else {
+          } else {
             data.push({
               name: category.name,
               slug: category.slug,
@@ -44,7 +43,7 @@ function CategoriesPage(props) {
         }
       });
 
-      if(found) {
+      if (found) {
         data = {
           name: product.name,
           slug: product.slug,
@@ -60,10 +59,10 @@ function CategoriesPage(props) {
     props.products.forEach((product) => {
       const productCat = JSON.parse(product.categories);
       let data = [];
-      
+
       productCat.forEach((id) => {
-        const category = props.categories[id-1];
-        if(category !== undefined) {
+        const category = props.categories[id - 1];
+        if (category !== undefined) {
           data.push({
             name: category.name,
             slug: category.slug,
@@ -92,7 +91,7 @@ function CategoriesPage(props) {
 }
 
 CategoriesPage.propTypes = {
-  categories: React.PropTypes.array,
+  params: React.PropTypes.array,
   products: React.PropTypes.array,
 };
 

@@ -292,7 +292,7 @@ router.get('/products/', (req, res) => {
       slug: 'textured-v-neck-icon-sweater',
       desc: 'A classic V neck sweater featuring a textured pattern, ribbed trims and an icon at left chest, Slim Fit, Imported',
       categories: '[1, 8]',
-      images: ['img9.jpg','img91.jpg', 'img92.jpg', 'img93.jpg', 'img94.jpg'],
+      images: ['img9.jpg', 'img91.jpg', 'img92.jpg', 'img93.jpg', 'img94.jpg'],
       price: 39,
       sizes: [
         {

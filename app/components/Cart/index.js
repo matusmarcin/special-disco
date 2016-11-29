@@ -30,7 +30,6 @@ function Cart(props) {
     message = (
       <List className={styles.list} items={props.items} component={ProductCart} />
     );
-
   }
 
   return (
@@ -39,12 +38,12 @@ function Cart(props) {
         <div className={styles.left}>
           <FormattedMessage {...messages.header} />
         </div>
-        <div className={styles.right}>  
-         <FormattedMessage {...messages.subtotal} />
-         ${price.toFixed(2)}
+        <div className={styles.right}>
+          <FormattedMessage {...messages.subtotal} />
+          ${price.toFixed(2)}
         </div>
       </div>
-       <div className={styles.clear}></div>
+      <div className={styles.clear}></div>
       <hr />
       {message}
       <div className={styles.div_checkout}>

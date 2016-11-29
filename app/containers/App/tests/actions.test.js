@@ -4,15 +4,17 @@ import {
   LOAD_PRODUCTS,
   LOAD_PRODUCTS_SUCCESS,
   LOAD_PRODUCTS_ERROR,
+  DEC_SIZE_COUNT,
 } from '../constants';
 
 import {
   loadProducts,
   productsLoaded,
   prodLoadError,
+  decSizeCount,
 } from '../actions';
 
-describe('Products Actions', () => {
+describe('App Actions', () => {
   describe('loadProducts', () => {
     it('should return the correct type', () => {
       const expectedResult = {
@@ -25,13 +27,15 @@ describe('Products Actions', () => {
 
   describe('productsLoaded', () => {
     it('should return the correct type and the passed products', () => {
-      const fixture = ['Textured Jersey Henley'];
+      const fixtureCats = ['summer-collection'];
+      const fixtureProducts = ['Textured Jersey Henley'];
       const expectedResult = {
         type: LOAD_PRODUCTS_SUCCESS,
-        products: fixture,
+        categories: fixtureCats,
+        products: fixtureProducts,
       };
 
-      expect(productsLoaded(fixture)).toEqual(expectedResult);
+      expect(productsLoaded(fixtureProducts, fixtureCats)).toEqual(expectedResult);
     });
   });
 
@@ -46,6 +50,22 @@ describe('Products Actions', () => {
       };
 
       expect(prodLoadError(fixture)).toEqual(expectedResult);
+    });
+  });
+
+  describe('decSizeCount', () => {
+    it('should return the correct type and the passed params', () => {
+      const fixtureSize = 'S';
+      const fixtureSlug = 'textured-jersey-henley';
+      const fixtureCount = 2;
+      const expectedResult = {
+        type: DEC_SIZE_COUNT,
+        size: fixtureSize,
+        slug: fixtureSlug,
+        count: fixtureCount,
+      };
+
+      expect(decSizeCount(fixtureSize, fixtureSlug, fixtureCount)).toEqual(expectedResult);
     });
   });
 });

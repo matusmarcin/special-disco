@@ -41,7 +41,7 @@ export function* getProductsWatcher() {
  */
 export function* productsData() {
   // Fork watcher so we can continue execution
-  const watcher = yield fork(getProductsWatcher);
+  yield fork(getProductsWatcher);
 }
 
 // All sagas to be loaded

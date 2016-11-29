@@ -37,20 +37,19 @@ function appReducer(state = initialState, action) {
         .set('error', action.error)
         .set('loading', false);
     case DEC_SIZE_COUNT:
-      let products = state.get('products');
-      products.forEach((product) => {
-        if(product.slug !== action.slug) {
-          return;
-        }
-
-        product.sizes.forEach((size) => {
-          if(size.name === action.size) {
-            size.count -= action.count;
+      return state.set('products', state.get('products').forEach(
+        (product) => {
+          if (product.slug !== action.slug) {
+            return;
           }
-        });
-      });
-      return state
-        .set('products', products);
+
+          product.sizes.forEach((size) => {
+            if (size.name === action.size) {
+              size.count -= action.count; // eslint-disable-line no-param-reassign
+            }
+          });
+        })
+      );
     default:
       return state;
   }

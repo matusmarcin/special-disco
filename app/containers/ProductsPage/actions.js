@@ -53,7 +53,7 @@ export function pickSize(size) {
 export function setProduct(product) {
   return {
     type: SET_PRODUCT,
-    product
+    product,
   };
 }
 

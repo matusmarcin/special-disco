@@ -2,22 +2,48 @@ import { fromJS } from 'immutable';
 import expect from 'expect';
 
 import {
-  selectProductsDomain,
+  selectGlobal,
+  selectCategories,
+  selectProducts,
   selectLoading,
   selectError,
-  selectProducts,
+  selectLocationState,
 } from '../selectors';
 
-describe('selectProductsDomain', () => {
-  const productsDomainSelector = selectProductsDomain();
-  it('should select the products domain state', () => {
-    const productsDomainState = fromJS({
-      userData: {},
-    });
+describe('selectGlobal', () => {
+  const globalSelector = selectGlobal();
+  it('should select the global state', () => {
+    const globalState = fromJS({});
     const mockedState = fromJS({
-      products: productsDomainState,
+      global: globalState,
     });
-    expect(productsDomainSelector(mockedState)).toEqual(productsDomainState);
+    expect(globalSelector(mockedState)).toEqual(globalState);
+  });
+});
+
+describe('selectCategories', () => {
+  const categoriesSelector = selectCategories();
+  it('should select the categories state', () => {
+    const categories = fromJS([]);
+    const mockedState = fromJS({
+      global: {
+        categories,
+      },
+    });
+    expect(categoriesSelector(mockedState)).toEqual(categories);
+  });
+});
+
+describe('selectProducts', () => {
+  const productsSelector = selectProducts();
+  it('should select the products state', () => {
+    const products = fromJS([]);
+    const mockedState = fromJS({
+      global: {
+        products,
+      },
+    });
+    expect(productsSelector(mockedState)).toEqual(products);
   });
 });
 
@@ -26,7 +52,7 @@ describe('selectLoading', () => {
   it('should select the loading state', () => {
     const loading = false;
     const mockedState = fromJS({
-      products: {
+      global: {
         loading,
       },
     });
@@ -39,24 +65,11 @@ describe('selectError', () => {
   it('should select the error state', () => {
     const error = 404;
     const mockedState = fromJS({
-      products: {
+      global: {
         error,
       },
     });
     expect(errorSelector(mockedState)).toEqual(error);
-  });
-});
-
-describe('selectProducts', () => {
-  const productsSelector = selectProducts();
-  it('should select the products state', () => {
-    const products = fromJS([]);
-    const mockedState = fromJS({
-      products: {
-        products,
-      },
-    });
-    expect(productsSelector(mockedState)).toEqual(products);
   });
 });
 

@@ -24,32 +24,32 @@ const initialState = fromJS({
 });
 
 function productsPageReducer(state = initialState, action) {
+  let newState;
+
   switch (action.type) {
     case PICK_IMAGE:
       return state
         .set('image', action.image);
     case PICK_SIZE:
-      if(action.count > 0) {
-        state = state.set('counter', 1);
+      if (action.count > 0) {
+        newState = state.set('counter', 1);
+      } else {
+        newState = state.set('counter', 0);
       }
-      else {
-        state = state.set('counter', 0);
-      }
-      return state
+      return newState
         .set('max', action.count)
         .set('size', action.name);
     case SET_PRODUCT:
       return state
         .set('product', action.product);
     case DEC_MAX_COUNT:
-      state = state.set('max', state.get('max') - action.count);
-      if(state.get('max') > 0) {
-        state = state.set('counter', 1);
+      newState = state.set('max', state.get('max') - action.count);
+      if (state.get('max') > 0) {
+        newState = state.set('counter', 1);
+      } else {
+        newState = state.set('counter', 0);
       }
-      else {
-        state = state.set('counter', 0);
-      }
-      return state;
+      return newState;
     case SET_COUNTER:
       if (action.count > state.get('max')) {
         return state

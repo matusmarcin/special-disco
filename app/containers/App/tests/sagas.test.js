@@ -3,12 +3,16 @@
  */
 
 import expect from 'expect';
-import { take, call, put, fork, cancel } from 'redux-saga/effects';
-import { LOCATION_CHANGE } from 'react-router-redux';
+import { take, call, put, fork } from 'redux-saga/effects';
 
 import { getProducts, getProductsWatcher, productsData } from '../sagas';
 
-import { PRODUCTS_PAGE, LOAD_PRODUCTS } from '../constants';
+import {
+  CATEGORIES_PAGE,
+  PRODUCTS_PAGE,
+  LOAD_PRODUCTS,
+} from '../constants';
+
 import { productsLoaded, prodLoadError } from '../actions';
 
 import request from 'utils/request';
@@ -21,27 +25,36 @@ describe('getProducts Saga', () => {
   beforeEach(() => {
     getProductsGenerator = getProducts();
 
-    const callDescriptor = getProductsGenerator.next().value;
-    expect(callDescriptor).toEqual(call(request, PRODUCTS_PAGE));
+    let callDescriptor = getProductsGenerator.next().value;
+    expect(callDescriptor).toEqual(call(request, CATEGORIES_PAGE));
   });
 
   it('should dispatch the productsLoaded action if it requests the data successfully', () => {
-    const response = {
+    const responseCats = {
+      data: [{
+        name: 'Summer collection',
+      }, {
+        name: 'Winter collection',
+      }],
+    };
+    const responseProducts = {
       data: [{
         name: 'Textured Jersey Henley',
       }, {
         name: 'Must-Have Contrast T-Shirt',
       }],
     };
-    const putDescriptor = getProductsGenerator.next(response).value;
-    expect(putDescriptor).toEqual(put(productsLoaded(response.data)));
+    let putDescriptor = getProductsGenerator.next(responseCats).value;
+    putDescriptor = getProductsGenerator.next(responseProducts).value;
+    expect(putDescriptor).toEqual(put(productsLoaded(responseProducts.data, responseCats.data)));
   });
 
   it('should call the prodLoadError action if the response errors', () => {
     const response = {
       err: 'Some error',
     };
-    const putDescriptor = getProductsGenerator.next(response).value;
+    let putDescriptor = getProductsGenerator.next(response).value;
+    putDescriptor = getProductsGenerator.next(response).value;
     expect(putDescriptor).toEqual(put(prodLoadError(response.err)));
   });
 });
@@ -69,17 +82,4 @@ describe('productsDataSaga Saga', () => {
     forkDescriptor = productsDataSaga.next();
     expect(forkDescriptor.value).toEqual(fork(getProductsWatcher));
   });
-
-  it('should yield until LOCATION_CHANGE action', () => {
-    const takeDescriptor = productsDataSaga.next();
-    expect(takeDescriptor.value).toEqual(take(LOCATION_CHANGE));
-  });
-
-  it('should finally cancel() the forked getProductsWatcher saga',
-     function* productsDataSagaCancellable() {
-      // reuse open fork for more integrated approach
-       forkDescriptor = productsDataSaga.next(put(LOCATION_CHANGE));
-       expect(forkDescriptor.value).toEqual(cancel(forkDescriptor));
-     }
-   );
 });
