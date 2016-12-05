@@ -17,10 +17,18 @@ import styles from './styles.css';
 function Cart(props) {
   const items = props.items;
 
-  let price = 0;
-  let message = (<FormattedMessage {...messages.message} />);
+  let price = 0
+    let message = (<FormattedMessage {...messages.message} />);
+    let checkout = (<div></div>);
 
   if (items) {
+
+    checkout = (
+      <div className={styles.div_checkout}>
+        <button className={styles.btn_checkout}>CheckOut</button>
+      </div>
+    );
+
     for (let i = 0, len = items.length; i < len; i += 1) {
       const currentItem = items[i];
 
@@ -46,9 +54,7 @@ function Cart(props) {
       <div className={styles.clear}></div>
       <hr />
       {message}
-      <div className={styles.div_checkout}>
-        <button className={styles.btn_checkout}>CheckOut</button>
-      </div>
+      {checkout}
     </div>
   );
 }
