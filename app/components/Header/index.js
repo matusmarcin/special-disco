@@ -41,7 +41,7 @@ export class Header extends React.Component { // eslint-disable-line react/prefe
             >CART</a></li>
           </ul>
         </nav>
-        <div className={styles.headerLogo}>
+        <div className={styles.headerLogo }>
           <a href=""><img alt="clothesshop" src={LogoImg} /></a>
         </div>
         <nav className={styles.navPages}>

@@ -19,7 +19,7 @@ function Cart(props) {
 
   let price = 0
     let message = (<FormattedMessage {...messages.message} />);
-    let checkout = (<div></div>);
+    let checkout = (<div />);
 
   if (items) {
 

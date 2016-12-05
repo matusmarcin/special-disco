@@ -31,7 +31,6 @@ function ProductItem(props) {
   return (
     <div className={styles.itemContent}>
       <Link to={`/${item.slug}/products`}><img src={`/img/products/${item.img}`} alt={name} /></Link><br />
-      {categories}
       <h2><Link to={`/${item.slug}/products`}>{item.name}</Link></h2>
       ${item.price.toFixed(2)}
     </div>
