@@ -125,11 +125,13 @@ export class ProductsPage extends React.Component { // eslint-disable-line react
 
     return (
       <div className={styles.productSpecs}>
-        <div>
-          <img src={`/img/products/${this.props.image}`} alt={name} />
+        <div className={styles.divImages}>
+          <div className={styles.divBig}>
+            <img src={`/img/products/${this.props.image}`} alt={name} />
+          </div>
           <List className={styles.imageList} items={images} component={ProductImage} />
         </div>
-        <div>
+        <div className={styles.divInfo}>
           {categories}
           <br />
           <h2>{item.name}</h2>
@@ -178,6 +180,8 @@ export class ProductsPage extends React.Component { // eslint-disable-line react
           />
           <br />
           {item.desc}
+        </div>
+        <div className={styles.clear}>
         </div>
       </div>
     );
