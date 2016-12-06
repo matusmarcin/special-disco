@@ -32,6 +32,7 @@ import Error from 'components/Error';
 import Header from 'components/Header';
 import Slideshow from 'components/Slideshow';
 import ShoppingCart from 'containers/ShoppingCart';
+import Toggle from 'containers/Toggle';
 import Footer from 'components/Footer';
 
 export class App extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -58,6 +59,7 @@ export class App extends React.Component { // eslint-disable-line react/prefer-s
     return (
       <div>
         <Header />
+        <Toggle />
         <ShoppingCart />
         <Slideshow />
         <div className={styles.container}>

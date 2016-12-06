@@ -12,6 +12,9 @@ import { Link } from 'react-router';
 import {
   toggleMenu,
 } from 'containers/ShoppingCart/actions';
+import {
+  toggleButton,
+} from 'containers/Toggle/actions';
 
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
@@ -41,13 +44,20 @@ export class Header extends React.Component { // eslint-disable-line react/prefe
             >CART</a></li>
           </ul>
         </nav>
-        <div className={styles.headerLogo }>
+        <div className={styles.headerLogo}>
           <a href=""><img alt="clothesshop" src={LogoImg} /></a>
         </div>
         <nav className={styles.navPages}>
-          <ul className={styles.navPagesList} id="myTopnav">
+          <ul className={styles.navPagesList}>
             <li className={styles.navIcon}>
-              <a href="">&#9776;</a>
+              <a href=""
+               onClick={
+                (event) => {
+                  this.props.dispatch(toggleButton());
+                  event.preventDefault();
+                }
+              }
+              >&#x25BD;</a>
             </li>
             <li><Link to="/">ALL</Link></li>
             <li><Link to="/summer-collection/categories">SUMMER COLLECTION</Link></li>
