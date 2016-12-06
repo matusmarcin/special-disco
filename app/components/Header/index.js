@@ -28,30 +28,35 @@ export class Header extends React.Component { // eslint-disable-line react/prefe
       <header className={styles.header} role="banner">
         <nav className={styles.navUser}>
           <ul className={styles.navUserSection}>
-            <li>
-              <a href="">LOGIN</a>
-              <span>&nbsp;&nbsp;or&nbsp;&nbsp;</span>
-              <a href="">SIGN UP</a>
-            </li>
-            <li><a
-              href="/cart"
-              onClick={
+            <div className="animated bounceInDown">
+              <li>
+                <a href="">LOGIN</a>
+                <span>&nbsp;&nbsp;or&nbsp;&nbsp;</span>
+                <a href="">SIGN UP</a>
+              </li>
+              <li><a
+                href="/cart"
+                onClick={
                 (event) => {
                   this.props.dispatch(toggleMenu());
                   event.preventDefault();
                 }
               }
-            >CART</a></li>
+              >CART</a></li>
+            </div>
           </ul>
         </nav>
+        <div className="animated bounceInDown">
         <div className={styles.headerLogo}>
           <a href=""><img alt="clothesshop" src={LogoImg} /></a>
         </div>
+        </div>
         <nav className={styles.navPages}>
           <ul className={styles.navPagesList}>
-            <li className={styles.navIcon}>
-              <a href=""
-               onClick={
+            <div className="animated bounceInUp">
+              <li className={styles.navIcon}>
+                <a href=""
+                onClick={
                 (event) => {
                   this.props.dispatch(toggleButton());
                   event.preventDefault();
@@ -68,6 +73,7 @@ export class Header extends React.Component { // eslint-disable-line react/prefe
             <li><Link to="/sweaters/categories">SWEATERS</Link></li>
             <li><Link to="/jeans/categories">JEANS</Link></li>
             <li><Link to="/pants/categories">PANTS</Link></li>
+          </div>
           </ul>
         </nav>
       </header>

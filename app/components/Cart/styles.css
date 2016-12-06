@@ -50,17 +50,27 @@ ul {
 }
 
 .btn_checkout {
+   position: relative;
+  vertical-align: top;
+  width: 100%;
+  height: 60px;
+  padding: 0;
+  font-size: 22px;
+  color: white;
   text-align: center;
-  padding: 5px 10px;
-  background: #7CFC00;
-  border-radius: 6px;
-  font-size: 17px;
-  margin-bottom: 15px;
-  margin-left: 7px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: #2ecc71;
+  border: 0;
+  border-bottom: 2px solid #28be68;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 -2px #28be68;
+  box-shadow: inset 0 -2px #28be68;
 }
 
 .btn_checkout:hover,
 .btn_checkout:focus {
-  background: #5BB800;
-  cursor: pointer;
+  top: 1px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
