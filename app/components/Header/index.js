@@ -26,11 +26,11 @@ export class Header extends React.Component { // eslint-disable-line react/prefe
         <nav className={styles.navUser}>
           <ul className={styles.navUserSection}>
             <li>
-              <a href="">LOGIN</a>
+              <a className="hvr-buzz" href="">LOGIN</a>
               <span>&nbsp;&nbsp;or&nbsp;&nbsp;</span>
-              <a href="">SIGN UP</a>
+              <a className="hvr-buzz" href="">SIGN UP</a>
             </li>
-            <li><a
+            <li><a className="hvr-buzz"
               href="/cart"
               onClick={
                 (event) => {
@@ -44,7 +44,7 @@ export class Header extends React.Component { // eslint-disable-line react/prefe
         <div className={styles.headerLogo }>
           <a href=""><img alt="clothesshop" src={LogoImg} /></a>
         </div>
-        <nav className={styles.navPages}>
+        <nav className={styles.navPages} >
           <ul className={styles.navPagesList} id="myTopnav">
             <li className={styles.navIcon}>
               <a href="">&#9776;</a>
