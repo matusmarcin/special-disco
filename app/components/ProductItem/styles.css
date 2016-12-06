@@ -7,9 +7,24 @@
   max-width: 100%;
 }
 
-.itemContent img:hover {
+/*.itemContent img:hover {
   -moz-box-shadow: 0 0 10px #ccc;
   -webkit-box-shadow: 0 0 10px #ccc;
   box-shadow: 0 0 10px #ccc; 
-} 
+} */
 
+
+.imgDiv img {
+ -webkit-transition: all 1s ease; /* Safari and Chrome */
+ transition: all 2s ease;
+   /* max-width: 100%;*/
+}
+
+.imgDiv img:hover {
+ -webkit-transform:scale(1.15); /* Safari and Chrome */
+ transform:scale(1.15);
+}
+
+.imgDiv {
+ overflow: auto;
+}
