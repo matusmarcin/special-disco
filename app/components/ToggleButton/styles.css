@@ -1,0 +1,32 @@
+.menu {
+  display: none;
+}
+
+@media (max-width: 680px) {
+.menu {
+  display: initial;
+  position: absolute;
+  width: 100%;  
+  background-color: #F1F1F1;
+  color: #4F4F4F;
+  z-index: 10;
+}
+
+ul {
+padding: 0;
+}
+
+.menu ul {
+  text-align: center;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.menu li:not(:first-child) {
+  padding-top: 3px;
+}
+
+.menu li:not(:last-child) {
+border-bottom: 1px solid #E8E8E8;
+padding-bottom: 1px;
+}
+}
