@@ -44,10 +44,10 @@ function productsPageReducer(state = initialState, action) {
         .set('product', action.product);
     case DEC_MAX_COUNT:
       newState = state.set('max', state.get('max') - action.count);
-      if (state.get('max') > 0) {
-        newState = state.set('counter', 1);
+      if (newState.get('max') > 0) {
+        newState = newState.set('counter', 1);
       } else {
-        newState = state.set('counter', 0);
+        newState = newState.set('counter', 0);
       }
       return newState;
     case SET_COUNTER:

@@ -37,7 +37,8 @@ function appReducer(state = initialState, action) {
         .set('error', action.error)
         .set('loading', false);
     case DEC_SIZE_COUNT:
-      return state.set('products', state.get('products').forEach(
+      const newstate = state.get('products');
+      newstate.forEach(
         (product) => {
           if (product.slug !== action.slug) {
             return;
@@ -48,8 +49,9 @@ function appReducer(state = initialState, action) {
               size.count -= action.count; // eslint-disable-line no-param-reassign
             }
           });
-        })
+        }
       );
+      return state.set('products', newstate); 
     default:
       return state;
   }

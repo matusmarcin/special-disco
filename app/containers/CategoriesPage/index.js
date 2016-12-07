@@ -23,18 +23,20 @@ import styles from './styles.css';
 
 export class CategoriesPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
+    const props = this.props;
     const products = [];
 
-    if (this.props.params.slug !== undefined) {
-      this.props.products.forEach((product) => {
+    if (props.params.slug !== undefined) {
+      console.log(props.products);
+      props.products.forEach((product) => {
         const productCat = JSON.parse(product.categories);
         let data = [];
         let found = false;
 
         productCat.forEach((id) => {
-          const category = this.props.categories[id - 1];
+          const category = props.categories[id - 1];
           if (category !== undefined) {
-            if (this.props.params.slug === category.slug) {
+            if (props.params.slug === category.slug) {
               found = true;
             } else {
               data.push({
@@ -58,12 +60,12 @@ export class CategoriesPage extends React.Component { // eslint-disable-line rea
         }
       });
     } else {
-      this.props.products.forEach((product) => {
+      props.products.forEach((product) => {
         const productCat = JSON.parse(product.categories);
         let data = [];
 
         productCat.forEach((id) => {
-          const category = this.props.categories[id - 1];
+          const category = props.categories[id - 1];
           if (category !== undefined) {
             data.push({
               name: category.name,
