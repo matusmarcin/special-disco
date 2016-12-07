@@ -1,19 +1,61 @@
 .productSpecs {
   padding-top: 2rem;
+  /*overflow: hidden;*/
 }
 
-.productSpecs div {
+.divImages {
   display: inline-block;
   vertical-align: top;
-  width: 50%;
+  width: 45%;
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
+.divBig img {
+  width: 100%;
+  float: left;
+-webkit-transition: all 1s ease; /* Safari and Chrome */
+ transition: all 1.5s ease;
+}
+
+.divBig img:hover {
+ -webkit-transform:scale(1.15); /* Safari and Chrome */
+ transform:scale(1.15);
+}
+
+.divBig {
+
+  overflow: hidden;
+  width: 75%;
+  float: left;
+  height: 100%;
+}
+
+.divImages ul {
+  float: right;
+  width: 22%;
+  margin-top: 0; 
+ /* overflow: hidden;*/
+}
+
+/*
 .productSpecs div > img {
   width: 500px;
   float: left;
   padding-bottom: 1rem;
+}*/
+
+.clear {
+clear:both;
+height:0;
+margin:0;
+font-size: 1px;
+line-height: 0;
+}
+
+.divInfo {
+  float: right;
+  width: 50%;
 }
 
 .productSpecs h2 {
@@ -36,8 +78,8 @@
 }
 
 .imageList li {
-  float: left;
-  width: 20%;
+ /* float: left;*/
+  width: 100%;
   padding-left: 0.35714rem;
   padding-right: 0.35714rem;
 }

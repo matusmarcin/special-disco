@@ -28,6 +28,9 @@ export class Header extends React.Component { // eslint-disable-line react/prefe
       <header className={styles.header} role="banner">
         <nav className={styles.navUser}>
           <ul className={styles.navUserSection}>
+              <a className="hvr-buzz" href="">LOGIN</a>
+              <a className="hvr-buzz" href="">SIGN UP</a>
+            <li><a className="hvr-buzz"
             <div className="animated bounceInDown">
               <li>
                 <a href="">LOGIN</a>
