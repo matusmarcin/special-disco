@@ -4,6 +4,8 @@ import expect from 'expect';
 import { shallow } from 'enzyme';
 import React from 'react';
 
+import { Link } from 'react-router';
+
 describe('<ProductItem />', () => {
   let item;
 
@@ -11,7 +13,13 @@ describe('<ProductItem />', () => {
   beforeEach(() => {
     item = {
       name: 'Textured Jersey Henley',
-      categories: '["Summer collection"]',
+      slug: 'textured-jersey-henley',
+      categories: [
+        {
+          name: 'Hoodies & Sweatshirts',
+          slug: 'hoodies-and-sweatshirts',
+        },
+      ],
       img: 'img1.jpg',
       price: 12.5,
     };
@@ -21,14 +29,18 @@ describe('<ProductItem />', () => {
     const renderedComponent = shallow(
       <ProductItem item={item} />
     );
-    expect(renderedComponent.text().indexOf(item.name)).toBeGreaterThan(-1);
+    expect(renderedComponent.contains(
+      <Link to={`/${item.slug}/products`}>{item.name}</Link>
+    )).toEqual(true);
   });
 
   it('should render the category of item', () => {
     const renderedComponent = shallow(
       <ProductItem item={item} />
     );
-    expect(renderedComponent.text().indexOf(JSON.parse(item.categories)[0])).toBeGreaterThan(-1);
+    expect(renderedComponent.contains(
+      <Link key={0} to={`/${item.categories[0].slug}/categories`}>{item.categories[0].name}</Link>
+    )).toEqual(true);
   });
 
   it('should render the item image', () => {

@@ -17,12 +17,11 @@ import styles from './styles.css';
 function Cart(props) {
   const items = props.items;
 
-  let price = 0
-    let message = (<FormattedMessage {...messages.message} />);
-    let checkout = (<div />);
+  let price = 0;
+  let message = (<FormattedMessage {...messages.message} />);
+  let checkout = (<div />);
 
   if (items) {
-
     checkout = (
       <div className={styles.div_checkout}>
         <button className={styles.btn_checkout}>CheckOut</button>

@@ -5,13 +5,14 @@ import React from 'react';
 import { Header } from '../index';
 
 describe('<Header />', () => {
+  function dispatch() {}
   it('should have nav menu', () => {
-    const renderedComponent = shallow(<Header dispatch />);
+    const renderedComponent = shallow(<Header dispatch={dispatch} />);
     expect(renderedComponent.find('nav').length >= 1).toEqual(true);
   });
 
   it('should have one image of logo', () => {
-    const renderedComponent = shallow(<Header dispatch />);
+    const renderedComponent = shallow(<Header dispatch={dispatch} />);
     expect(renderedComponent.find('img').length === 1).toEqual(true);
   });
 });

@@ -11,21 +11,20 @@ import {
   pickImage,
 } from 'containers/ProductsPage/actions';
 
-function ProductImage(props) {
-  const item = props.item;
-  const dispatch = props.dispatch;
-
-  return (
-    <a
-      href={`/img/products/${item.img}`}
-      onClick={(event) => {
-        dispatch(pickImage(item.img));
-        event.preventDefault();
-      }}
-    >
-      <img src={`/img/products/${item.img}`} alt={item.name} />
-    </a>
-  );
+export class ProductImage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+  render() {
+    return (
+      <a
+        href={`/img/products/${this.props.item.img}`}
+        onClick={(event) => {
+          this.props.dispatch(pickImage(this.props.item.img));
+          event.preventDefault();
+        }}
+      >
+        <img src={`/img/products/${this.props.item.img}`} alt={this.props.item.name} />
+      </a>
+    );
+  }
 }
 
 ProductImage.propTypes = {

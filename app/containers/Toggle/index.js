@@ -15,12 +15,11 @@ import ToggleButton from 'components/ToggleButton';
 
 export class Toggle extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
-    if(this.props.show){
-    return (
-     <ToggleButton />
-          );
-      }
-      return null;
+    if (this.props.show) {
+      return (<ToggleButton />);
+    }
+
+    return null;
   }
 }
 

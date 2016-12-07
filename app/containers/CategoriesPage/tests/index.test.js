@@ -9,8 +9,12 @@ import ProductItem from 'components/ProductItem';
 import styles from '../styles.css';
 
 describe('<CategoriesPage />', () => {
-  it('should render all categories if no slug is provided', () => {
-    const categories = [
+  let categories;
+  let products;
+
+  // Before each test reset the item data for safety
+  beforeEach(() => {
+    categories = [
       {
         name: 'Summer collection',
         slug: 'summer-collection',
@@ -28,7 +32,7 @@ describe('<CategoriesPage />', () => {
         slug: 'hoodies-and-sweatshirts',
       },
     ];
-    const products = [
+    products = [
       {
         name: 'Textured Jersey Henley',
         slug: 'textured-jersey-henley',
@@ -44,6 +48,9 @@ describe('<CategoriesPage />', () => {
         price: 14,
       },
     ];
+  });
+
+  it('should render all categories if no slug is provided', () => {
     const processedProducts = [
       {
         name: 'Textured Jersey Henley',
@@ -84,40 +91,6 @@ describe('<CategoriesPage />', () => {
   });
 
   it('should render only category provided by slug', () => {
-    const categories = [
-      {
-        name: 'Summer collection',
-        slug: 'summer-collection',
-      },
-      {
-        name: 'Winter collection',
-        slug: 'winter-collection',
-      },
-      {
-        name: 'T-shirts',
-        slug: 't-shirts',
-      },
-      {
-        name: 'Hoodies & Sweatshirts',
-        slug: 'hoodies-and-sweatshirts',
-      },
-    ];
-    const products = [
-      {
-        name: 'Textured Jersey Henley',
-        slug: 'textured-jersey-henley',
-        categories: '[4]',
-        images: ['img1.jpg'],
-        price: 12.5,
-      },
-      {
-        name: 'Must-Have V Neck T-Shirt',
-        slug: 'must-have-v-neck-t-shirt',
-        categories: '[3]',
-        images: ['img2.jpg'],
-        price: 14,
-      },
-    ];
     const processedProducts = [
       {
         name: 'Must-Have V Neck T-Shirt',

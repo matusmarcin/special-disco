@@ -1,6 +1,5 @@
 .productSpecs {
   padding-top: 2rem;
-  /*overflow: hidden;*/
 }
 
 .divImages {
@@ -14,17 +13,16 @@
 .divBig img {
   width: 100%;
   float: left;
--webkit-transition: all 1s ease; /* Safari and Chrome */
- transition: all 1.5s ease;
+  -webkit-transition: all 1s ease; /* Safari and Chrome */
+  transition: all 1.5s ease;
 }
 
 .divBig img:hover {
- -webkit-transform:scale(1.15); /* Safari and Chrome */
- transform:scale(1.15);
+  -webkit-transform: scale(1.15); /* Safari and Chrome */
+  transform: scale(1.15);
 }
 
 .divBig {
-
   overflow: hidden;
   width: 75%;
   float: left;
@@ -34,23 +32,15 @@
 .divImages ul {
   float: right;
   width: 22%;
-  margin-top: 0; 
- /* overflow: hidden;*/
+  margin-top: 0;
 }
 
-/*
-.productSpecs div > img {
-  width: 500px;
-  float: left;
-  padding-bottom: 1rem;
-}*/
-
 .clear {
-clear:both;
-height:0;
-margin:0;
-font-size: 1px;
-line-height: 0;
+  clear: both;
+  height: 0;
+  margin: 0;
+  font-size: 1px;
+  line-height: 0;
 }
 
 .divInfo {
@@ -78,7 +68,6 @@ line-height: 0;
 }
 
 .imageList li {
- /* float: left;*/
   width: 100%;
   padding-left: 0.35714rem;
   padding-right: 0.35714rem;
@@ -121,9 +110,8 @@ line-height: 0;
   text-align: center;
 }
 
-
 .addToCart {
- position: relative;
+  position: relative;
   vertical-align: top;
   width: 100%;
   height: 60px;
@@ -134,17 +122,17 @@ line-height: 0;
   color: white;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-  background: #2ecc71;
+  background: #2ECC71;
   border: 0;
-  border-bottom: 2px solid #28be68;
+  border-bottom: 2px solid #28BE68;
   cursor: pointer;
-  -webkit-box-shadow: inset 0 -2px #28be68;
-  box-shadow: inset 0 -2px #28be68;
+  -webkit-box-shadow: inset 0 -2px #28BE68;
+  box-shadow: inset 0 -2px #28BE68;
 }
 
 .addToCart:hover,
 .addToCart:focus {
-    top: 1px;
+  top: 1px;
   outline: none;
   -webkit-box-shadow: none;
   box-shadow: none;

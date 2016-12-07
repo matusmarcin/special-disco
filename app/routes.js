@@ -22,7 +22,7 @@ export default function createRoutes(store) {
     injectReducer('shoppingCart', reducer.default)
   ).catch(errorLoading);
 
-   Promise.all([
+  Promise.all([
     System.import('containers/Toggle/reducer'),
   ]).then(([reducer]) =>
     injectReducer('toggle', reducer.default)

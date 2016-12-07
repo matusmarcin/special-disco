@@ -11,7 +11,7 @@ import {
 
 const initialState = fromJS({
   show: false,
-  });
+});
 
 function toggleReducer(state = initialState, action) {
   switch (action.type) {
