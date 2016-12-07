@@ -25,7 +25,7 @@ describe('getProducts Saga', () => {
   beforeEach(() => {
     getProductsGenerator = getProducts();
 
-    let callDescriptor = getProductsGenerator.next().value;
+    const callDescriptor = getProductsGenerator.next().value;
     expect(callDescriptor).toEqual(call(request, CATEGORIES_PAGE));
   });
 
@@ -45,6 +45,7 @@ describe('getProducts Saga', () => {
       }],
     };
     let putDescriptor = getProductsGenerator.next(responseCats).value;
+    expect(putDescriptor).toEqual(call(request, PRODUCTS_PAGE));
     putDescriptor = getProductsGenerator.next(responseProducts).value;
     expect(putDescriptor).toEqual(put(productsLoaded(responseProducts.data, responseCats.data)));
   });
@@ -54,6 +55,7 @@ describe('getProducts Saga', () => {
       err: 'Some error',
     };
     let putDescriptor = getProductsGenerator.next(response).value;
+    expect(putDescriptor).toEqual(call(request, PRODUCTS_PAGE));
     putDescriptor = getProductsGenerator.next(response).value;
     expect(putDescriptor).toEqual(put(prodLoadError(response.err)));
   });

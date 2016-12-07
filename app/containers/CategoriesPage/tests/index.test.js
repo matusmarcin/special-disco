@@ -2,44 +2,142 @@ import expect from 'expect';
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import { Products } from '../index';
-import ProductItem from 'components/ProductItem';
+import { CategoriesPage } from '../index';
 import List from 'components/List';
-import Loading from 'components/Loading';
-import Error from 'components/Error';
+import ProductItem from 'components/ProductItem';
 
-describe('<Products />', () => {
-  it('should render the loading indicator when its loading', () => {
-    const renderedComponent = shallow(
-      <Products loading />
-    );
-    expect(renderedComponent.contains(<Loading />)).toEqual(true);
-  });
+import styles from '../styles.css';
 
-  it('should render an error if loading failed', () => {
-    const renderedComponent = shallow(
-      <Products
-        loading={false}
-        error={{ message: 'Loading failed!' }}
-      />
-    );
-    expect(renderedComponent.contains(<Error />)).toEqual(true);
-  });
+describe('<CategoriesPage />', () => {
+  it('should render all categories if no slug is provided', () => {
+    const categories = [
+      {
+        name: 'Summer collection',
+        slug: 'summer-collection',
+      },
+      {
+        name: 'Winter collection',
+        slug: 'winter-collection',
+      },
+      {
+        name: 'T-shirts',
+        slug: 't-shirts',
+      },
+      {
+        name: 'Hoodies & Sweatshirts',
+        slug: 'hoodies-and-sweatshirts',
+      },
+    ];
+    const products = [
+      {
+        name: 'Textured Jersey Henley',
+        slug: 'textured-jersey-henley',
+        categories: '[4]',
+        images: ['img1.jpg'],
+        price: 12.5,
+      },
+      {
+        name: 'Must-Have V Neck T-Shirt',
+        slug: 'must-have-v-neck-t-shirt',
+        categories: '[3]',
+        images: ['img2.jpg'],
+        price: 14,
+      },
+    ];
+    const processedProducts = [
+      {
+        name: 'Textured Jersey Henley',
+        slug: 'textured-jersey-henley',
+        categories: [
+          {
+            name: 'Hoodies & Sweatshirts',
+            slug: 'hoodies-and-sweatshirts',
+          },
+        ],
+        img: 'img1.jpg',
+        price: 12.5,
+      },
+      {
+        name: 'Must-Have V Neck T-Shirt',
+        slug: 'must-have-v-neck-t-shirt',
+        categories: [
+          {
+            name: 'T-shirts',
+            slug: 't-shirts',
+          },
+        ],
+        img: 'img2.jpg',
+        price: 14,
+      },
+    ];
+    const params = {};
 
-  it('should render the products if loading was successful', () => {
-    const products = [{
-      name: 'Textured Jersey Henley',
-      categories: '["Summer collection"]',
-      img: 'img1.jpg',
-      price: 12.5,
-    }];
     const renderedComponent = shallow(
-      <Products
+      <CategoriesPage
+        categories={categories}
         products={products}
-        error={false}
+        params={params}
       />
     );
 
-    expect(renderedComponent.contains(<List items={products} component={ProductItem} />)).toEqual(true);
+    expect(renderedComponent.contains(<List className={styles.list} items={processedProducts} component={ProductItem} />)).toEqual(true);
+  });
+
+  it('should render only category provided by slug', () => {
+    const categories = [
+      {
+        name: 'Summer collection',
+        slug: 'summer-collection',
+      },
+      {
+        name: 'Winter collection',
+        slug: 'winter-collection',
+      },
+      {
+        name: 'T-shirts',
+        slug: 't-shirts',
+      },
+      {
+        name: 'Hoodies & Sweatshirts',
+        slug: 'hoodies-and-sweatshirts',
+      },
+    ];
+    const products = [
+      {
+        name: 'Textured Jersey Henley',
+        slug: 'textured-jersey-henley',
+        categories: '[4]',
+        images: ['img1.jpg'],
+        price: 12.5,
+      },
+      {
+        name: 'Must-Have V Neck T-Shirt',
+        slug: 'must-have-v-neck-t-shirt',
+        categories: '[3]',
+        images: ['img2.jpg'],
+        price: 14,
+      },
+    ];
+    const processedProducts = [
+      {
+        name: 'Must-Have V Neck T-Shirt',
+        slug: 'must-have-v-neck-t-shirt',
+        categories: [],
+        img: 'img2.jpg',
+        price: 14,
+      },
+    ];
+    const params = {
+      slug: 't-shirts',
+    };
+
+    const renderedComponent = shallow(
+      <CategoriesPage
+        categories={categories}
+        products={products}
+        params={params}
+      />
+    );
+    expect(renderedComponent.contains(<List className={styles.list} items={processedProducts} component={ProductItem} />)).toEqual(true);
   });
 });

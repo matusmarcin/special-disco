@@ -1,6 +1,6 @@
 /*
  *
- * Products
+ * CategoriesPage
  *
  */
 
@@ -21,29 +21,57 @@ import ProductItem from 'components/ProductItem';
 
 import styles from './styles.css';
 
-function CategoriesPage(props) {
-  const products = [];
-  if (props.params.slug !== undefined) {
-    props.products.forEach((product) => {
-      const productCat = JSON.parse(product.categories);
-      let data = [];
-      let found = false;
+export class CategoriesPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+  render() {
+    const products = [];
 
-      productCat.forEach((id) => {
-        const category = props.categories[id - 1];
-        if (category !== undefined) {
-          if (props.params.slug === category.slug) {
-            found = true;
-          } else {
+    if (this.props.params.slug !== undefined) {
+      this.props.products.forEach((product) => {
+        const productCat = JSON.parse(product.categories);
+        let data = [];
+        let found = false;
+
+        productCat.forEach((id) => {
+          const category = this.props.categories[id - 1];
+          if (category !== undefined) {
+            if (this.props.params.slug === category.slug) {
+              found = true;
+            } else {
+              data.push({
+                name: category.name,
+                slug: category.slug,
+              });
+            }
+          }
+        });
+
+        if (found) {
+          data = {
+            name: product.name,
+            slug: product.slug,
+            categories: data,
+            img: product.images[0],
+            price: product.price,
+          };
+
+          products.push(data);
+        }
+      });
+    } else {
+      this.props.products.forEach((product) => {
+        const productCat = JSON.parse(product.categories);
+        let data = [];
+
+        productCat.forEach((id) => {
+          const category = this.props.categories[id - 1];
+          if (category !== undefined) {
             data.push({
               name: category.name,
               slug: category.slug,
             });
           }
-        }
-      });
+        });
 
-      if (found) {
         data = {
           name: product.name,
           slug: product.slug,
@@ -53,46 +81,22 @@ function CategoriesPage(props) {
         };
 
         products.push(data);
-      }
-    });
-  } else {
-    props.products.forEach((product) => {
-      const productCat = JSON.parse(product.categories);
-      let data = [];
-
-      productCat.forEach((id) => {
-        const category = props.categories[id - 1];
-        if (category !== undefined) {
-          data.push({
-            name: category.name,
-            slug: category.slug,
-          });
-        }
       });
+    }
 
-      data = {
-        name: product.name,
-        slug: product.slug,
-        categories: data,
-        img: product.images[0],
-        price: product.price,
-      };
-
-      products.push(data);
-    });
+    return (
+      <div>
+        <h1><FormattedMessage {...messages.header} /></h1>
+        <List className={styles.list} items={products} component={ProductItem} />
+      </div>
+    );
   }
-
-  return (
-    <div>
-      <h1><FormattedMessage {...messages.header} /></h1>
-      <List className={styles.list} items={products} component={ProductItem} />
-    </div>
-  );
 }
 
 CategoriesPage.propTypes = {
-  params: React.PropTypes.array,
+  params: React.PropTypes.object,
   products: React.PropTypes.array,
+  categories: React.PropTypes.array,
 };
 
 const mapStateToProps = createStructuredSelector({

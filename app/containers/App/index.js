@@ -50,7 +50,7 @@ export class App extends React.Component { // eslint-disable-line react/prefer-s
     } else if (this.props.error !== false) {
       products = (<Error />);
 
-    // If we're not loading, don't have an error and there are products, show the products
+    // If we're not loading, don't have an error and there are products, show the page
     } else if (this.props.products !== false) {
       products = React.Children.toArray(this.props.children);
     }
